@@ -32,7 +32,7 @@
  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git 
  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
  ```
-6. add ~/.zshrc 
+6. add ~/.zshrc (Must over .oh-my-zsh)
 ```plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 ZSH_DISABLE_COMPFIX="true"
 prompt_context() { 
@@ -41,6 +41,26 @@ if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
 fi 
 }
 ```
-## 2 Install Neovim
+## 2 Install Neovim  
+1. Neovim install  
+```
+cd ~
+wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+chmod 755 nvim.appimage
+./nvim.appimage --appimage-extract
+cd squashfs-root
+sudo mv usr/bin/nvim /usr/bin/nvim
+sudo mv usr/share/nvim /usr/share/nvim
+```
+2. alies vi,vim -> nvim / clear -> cl   
+```
+cd ~
+nvim .zshrc
+[add below code at end line]
+alies vi=nvim
+alies vim=nvim
+alies cl=clear
+```
+
 ## 3 Setting Neovim
 ## 4 Install coc-nvim
