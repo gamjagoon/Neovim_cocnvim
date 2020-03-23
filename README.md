@@ -1,4 +1,8 @@
-# Neovim_cocnvim(verstion ubuntu.18.04 - window WSL)
+# Neovim_cocnvim(verstion ubuntu.18.04 - window WSL(windows_termianl)
+## 0 In microsoft store Install ubuntu18.04 and windows terminal  
+https://www.microsoft.com/store/productId/9N0DX20HK701
+https://www.microsoft.com/store/productId/9N9TNGVNDL3Q
+
 ## 1 Basic setup
 1. sys updates  
  ```
