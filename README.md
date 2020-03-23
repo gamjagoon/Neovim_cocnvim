@@ -24,12 +24,12 @@
  ```git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions```  
 6. add ~/.zshrc 
 ```plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
-  => ZSH_DISABLE_COMPFIX="true"
-  => prompt_context() { 
-    if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then 
-      prompt_segment black default "%(!.%{%F{yellow}%}.)$USER" 
-    fi 
-   }
+ZSH_DISABLE_COMPFIX="true"
+prompt_context() { 
+if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then 
+  prompt_segment black default "%(!.%{%F{yellow}%}.)$USER" 
+fi 
+}
 ```
 ## 2 Install Neovim
 ## 3 Setting Neovim
