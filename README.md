@@ -1,14 +1,14 @@
 # Neovim_cocnvim(verstion ubuntu.18.04 - window WSL)
 ## 1 Basic setup
-1. sys updates
- ```sudo apt update ```
+1. sys updates  
+ ```sudo apt update ```  
  ``` sudo apt upgrade ``` 
-2. install nodejs && update 13.x
- 1) sudo apt install nodejs
- 2) sudo apt install npm
- 3) sudo npm cache clean -f 
- 4) sudo npm install -g n 
- 5) sudo n latest
+2. install nodejs && update 13.x  
+ ```sudo apt install nodejs```  
+ ```sudo apt install npm```  
+ ```sudo npm cache clean -f```  
+ ```sudo npm install -g n```  
+ ```sudo n latest```
 3. install python
  1) sudo apt-get install software-properties-common
  2) sudo apt install python python-dev python3 python3-dev python3-pip
