@@ -1,8 +1,8 @@
 # Neovim_cocnvim(verstion ubuntu.18.04 - window WSL)
 ## 1 Basic setup
 1. sys updates
- 1) sudo apt update 
- 2)  sudo apt upgrade 
+ 1) ```sudo apt update ```
+ 2) sudo apt upgrade 
 2. install nodejs && update 13.x
  1) sudo apt install nodejs
  2) sudo apt install npm
