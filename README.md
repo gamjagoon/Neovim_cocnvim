@@ -255,8 +255,8 @@ vim +PlustInstall
 :CocList marketplace
 coc-json , coc-clangd, coc-syntex ...
 ```
-## 5 coc-confic  
-1. cd ~/.config/
+## 5 coc-config  
+1. cd ~/.config/coc-settings.json
 ```
 {
     "snippets.extends": {
