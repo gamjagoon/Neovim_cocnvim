@@ -9,20 +9,20 @@
  ```sudo npm cache clean -f```  
  ```sudo npm install -g n```  
  ```sudo n latest```
-3. install python
- 1) sudo apt-get install software-properties-common
- 2) sudo apt install python python-dev python3 python3-dev python3-pip
-4. install clangd
- 1) sudo apt install clangd-9
- 2) sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-9 100
-5. install zsh
- 1) sudo apt install zsh
- 2) chsh -s /usr/bin/zsh
- 3) sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
- 4) cd ~/.oh-my-zsh/custom/plugins 
- 5) git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
- 6) git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
- 7) add ~/.zshrc 
+3. install python  
+ ```sudo apt-get install software-properties-common```  
+ ```sudo apt install python python-dev python3 python3-dev python3-pip```  
+4. install clangd  
+ ```sudo apt install clangd-9```  
+ ```sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-9 100```  
+5. install zsh  
+```sudo apt install zsh```
+ ```chsh -s /usr/bin/zsh```
+ ```sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"```
+ ```cd ~/.oh-my-zsh/custom/plugins```
+ ```git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+```git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+ ```add ~/.zshrc ```  
   => plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
   => ZSH_DISABLE_COMPFIX="true"
   => prompt_context() { 
