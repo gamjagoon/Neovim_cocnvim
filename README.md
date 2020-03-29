@@ -89,11 +89,13 @@ alies cl=clear
 syntax on
 nmap <Leader>it :e ~/.config/nvim/init.vim
 set pastetoggle=<F2>
-map <F10> :set list! list? <CR>
+set relativenumber
 nnoremap <Leader>w :write<cr>
-nnoremap <Leader>q :quit<cr>
-nmap <S-M>a :resize_<cr>
-nmap <S-M>x <C-w><C-w>:q<cr>
+nnoremap <Leader>qq :w\|bw<cr>
+nnoremap <Leader><space> :nohls<cr>
+nnoremap <S-M>a :resize_<cr>
+nnoremap <S-M>x <C-w><C-w>:q<cr>
+nnoremap <silent>te <C-w>p:q<cr>
 " Better splits
 nnoremap sp :split<cr>
 nnoremap vs :vsplit<cr>
@@ -105,9 +107,12 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-" Navigatin's mappings
+" middle start
+nnoremap <Leader>o o<Esc>yy15P
 " Normal mode
 nmap <S-f> ^i
+imap <C-a> <Esc><S-a>
+imap <C-f> <Esc>^i
 
 " insert mode
 imap <Leader>; <Esc><S-a>;<Esc>
@@ -116,7 +121,7 @@ nmap <Leader>; <S-a>;<Esc>
 set noerrorbells
 set ts=4 softtabstop=4 
 set shiftwidth=4                    " 자동 들여쓰기 4칸 "
-set expandtab
+"set expandtab "tap -> space
 set number
 set nowrap
 set splitbelow splitright
@@ -137,7 +142,9 @@ call plug#begin('~/.vim/plugged')
 " Shorthand notation; fetches 
 Plug 'junegunn/vim-easy-align'
 " color schemes
+Plug 'altercation/solarized'
 Plug 'joshdick/onedark.vim'
+Plug 'sonph/onehalf'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " task manager
@@ -145,16 +152,13 @@ Plug 'skywind3000/asynctasks.vim'
 Plug 'skywind3000/asyncrun.vim'
 " vim go
 Plug 'fatih/vim-go'
-Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'jackguo380/vim-lsp-cxx-highlight'
 " coc-nvim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Shougo/neco-vim'
 Plug 'neoclide/coc-neco'
 "Navigation"
-Plug 'scrooloose/nerdtree'
-Plug 'xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'yggdroot/indentline'
 Plug 'yuttie/comfortable-motion.vim'
 Plug 'jiangmiao/auto-pairs'
@@ -162,8 +166,20 @@ Plug 'jiangmiao/auto-pairs'
 call plug#end()
 let g:coc_global_extensions = ['coc-clangd','coc-git','coc-highlight','coc-json','coc-snippets','coc-actions']
 set encoding=UTF-8
-set t_Co=256 
+set t_Co=256
+set cursorline
+let g:lsp_cxx_hl_use_text_props = 1
+
+"color solarized
+"let g:solarized_termcolors=256
+"set background=light
+"colorscheme solarized
+
 colorscheme onedark
+let g:onedark_termcolors = 256
+let g:onedark_terminal_italics = 1
+"colorscheme onehalfdark
+"let g:airline_theme='onehalfdark'
 " task setup
 let g:asyncrun_open = 6
 let g:asynctasks_term_pos = 'left'
@@ -171,10 +187,10 @@ let g:asynctasks_term_rows = 100    " set height for the horizontal terminal spl
 let g:asynctasks_term_cols = 80
 let g:asyncrun_rootmarks = ['.git', '.svn', '.root', '.project', '.hg']
 let g:asynctasks_term_focus = 1
- noremap <Leader>tv :AsyncTask view-output<cr>
- noremap <silent><f5> :AsyncTask file-IO<cr>
- noremap <silent><f6> :AsyncTask file-run<cr>
- noremap <silent><f9> :AsyncTask file-build<cr>
+ noremap <silent>tv :vsplit<cr>:e out.txt<cr>
+ noremap <silent>tio :AsyncTask file-IO<cr>
+ noremap <silent>trn :AsyncTask file-run<cr>
+ noremap <silent>tb :AsyncTask file-build<cr>
  
  
 let g:AutoPairsFlyMode = 0
@@ -186,15 +202,8 @@ let g:airline#extensions#tabline#buffer_nr_show = 1       " buffer number를 보
 let g:airline#extensions#tabline#buffer_nr_format = '%s:' " buffer number format"
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#left_alt_sep = '>'
-let g:airline_theme='bubblegum'
+let g:airline_theme='onedark'
 let g:airline#extensions#coc#enabled = 1
-" NERDTreeToggle
-let g:NERDTreeSyntaxDisableDefaultExtensions = 1
-let g:NERDTreeDisableExactMatchHighlight = 1
-let g:NERDTreeDisablePatternMatchHighlight = 1
-let g:NERDTreeSyntaxEnabledExtensions = ['c', 'h', 'cpp','hpp', 'php', 'rb', 'js', 'css','txt','exe']
-let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
-let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name)
 " Coc - setting
 " TextEdit might fail if hidden is not set.
 inoremap <silent><expr> <TAB>
@@ -218,7 +227,7 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() :
 " " Remap keys for applying codeAction to the current line.
  nmap <leader>ac  <Plug>(coc-codeaction)
 " " Apply AutoFix to problem on the current line.
- nmap <leader>f  <Plug>(coc-fix-current)"
+ nmap <leader>f  <Plug>(coc-fix-current)<cr>
 "endfunction
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
@@ -239,14 +248,26 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+" coc explorer
+let g:coc_explorer_global_presets = {
+\   'floating': {
+\      'position': 'floating',
+\   },
+\   'simplify': {
+\   'file.child.template':'[git | 2] [selection | clip | 1] [indent][icon | 1] [diagnosticError & 1][filename omitCenter 1][readonly] [linkIcon & 1][link growRight 1 omitCenter 5][size]'
+\   }
+\ }
+
+" Use preset argument to open it
+nmap <Leader>ef :CocCommand explorer --preset floating<CR>
+
+" List all presets
+nmap <Leader>ed :CocCommand explorer --preset simplify<CR>
 
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
-
-"Nerd tree
-map <C-n> :NERDTreeToggle<CR>
 " indent line
 let g:indentLine_setColors = 50
 let g:comfortable_motion_scroll_down_key = "j"
