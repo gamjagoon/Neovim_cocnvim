@@ -12,15 +12,15 @@ https://www.microsoft.com/store/productId/9N9TNGVNDL3Q
 2. install nodejs && update 13.x  
  ```
  sudo apt install nodejs 
- sudo apt install npm  
- sudo npm cache clean -f  
- sudo npm install -g n 
- sudo n latest
+ \sudo apt install npm  
+ \sudo npm cache clean -f  
+ \sudo npm install -g n 
+ \sudo n latest
  ```
 3. install python  
  ```
  sudo apt-get install software-properties-common  
- sudo apt install python python-dev python3 python3-dev python3-pip
+ \sudo apt install python python-dev python3 python3-dev python3-pip
  ```  
 4. install clangd  
  ```
