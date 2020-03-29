@@ -20,7 +20,7 @@ https://www.microsoft.com/store/productId/9N9TNGVNDL3Q
 3. install python  
  ```
  sudo apt-get install software-properties-common  
- sudo apt install python python-dev python3 python3-dev python3-pip
+ sudo apt install python3 python3-dev python3-pip
  ```  
 4. install clangd  
  ```
