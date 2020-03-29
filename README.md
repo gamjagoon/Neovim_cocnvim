@@ -91,9 +91,9 @@ sudo mv usr/share/nvim /usr/share/nvim
 cd ~
 nvim .zshrc
 [add below code at end line]
-alies vi=nvim
-alies vim=nvim
-alies cl=clear
+alias vi=nvim
+alias vim=nvim
+alias cl=clear
 ```
 
 ## 3 Setting Neovim (copy-paste $HOME/.config/nvim/init.vim)
