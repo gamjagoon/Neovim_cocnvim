@@ -24,8 +24,8 @@ https://www.microsoft.com/store/productId/9N9TNGVNDL3Q
  ```  
 4. install clangd  
  ```
- sudo apt install clangd-9 
- sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-9 100  
+ sudo apt install clangd-10 
+ sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-10 100  
  ```
 5. install zsh  
  ```
