@@ -37,7 +37,19 @@ https://www.microsoft.com/store/productId/9N9TNGVNDL3Q
  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
  ```
 6. add ~/.zshrc (Must over .oh-my-zsh)  
-```plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+```
+# zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+# zsh-autosuggestions
+git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(
+  git
+  zsh-syntax-highlighting
+  zsh-autosuggestions
+)
 ZSH_DISABLE_COMPFIX="true"
 prompt_context() { 
 if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then 
