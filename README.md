@@ -6,30 +6,30 @@ https://www.microsoft.com/store/productId/9N9TNGVNDL3Q
 ## 1 Basic setup
 1. sys updates  
  ```
- sudo apt update
- sudo apt upgrade
+ sudo apt -y update
+ sudo apt -y upgrade
  ```
 2. install nodejs && update 13.x  
  ```
- sudo apt install nodejs 
- sudo apt install npm  
+ sudo apt install -y nodejs 
+ sudo apt install -y npm  
  sudo npm cache clean -f  
  sudo npm install -g n 
  sudo n latest
  ```
 3. install python  
  ```
- sudo apt-get install software-properties-common  
- sudo apt install python3 python3-dev python3-pip
+ sudo apt install -y software-properties-common  
+ sudo apt install -y python3 python3-pip
  ```  
 4. install clangd  
  ```
- sudo apt install clangd-10 
+ sudo apt install -y clangd-10 
  sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-10 100  
  ```
 5. install zsh  
  ```
- sudo apt install zsh
+ sudo apt install -y zsh
  chsh -s /usr/bin/zsh  
  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
  cd ~/.oh-my-zsh/custom/plugins 
