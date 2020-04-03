@@ -85,6 +85,8 @@ chmod 755 nvim.appimage
 cd squashfs-root
 sudo mv usr/bin/nvim /usr/bin/nvim
 sudo mv usr/share/nvim /usr/share/nvim
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 2. alies vi,vim -> nvim / clear -> cl   
 ```
