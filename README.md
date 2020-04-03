@@ -11,7 +11,7 @@ https://www.microsoft.com/store/productId/9N9TNGVNDL3Q
  ```
 2. install nodejs && update 13.x  
  ```
- sudo apt install -y nodejs\
+ sudo apt install -y nodejs
  sudo apt install -y npm\
  sudo npm cache clean -f\
  sudo npm install -g n\
