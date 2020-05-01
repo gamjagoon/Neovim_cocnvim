@@ -56,6 +56,8 @@ call plug#begin()
 " Shorthand notation; fetches 
 Plug 'junegunn/vim-easy-align'
 " color schemes
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'https://github.com/morhetz/gruvbox'
 Plug 'joshdick/onedark.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -66,21 +68,28 @@ Plug 'skywind3000/asyncrun.vim'
 Plug 'fatih/vim-go'
 " coc-nvim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-prettier']
 "Navigation"
 Plug 'ryanoasis/vim-devicons'
-Plug 'yggdroot/indentline'
 Plug 'yuttie/comfortable-motion.vim'
 Plug 'jiangmiao/auto-pairs'
+" Web
+Plug 'ianks/vim-tsx'
+Plug 'leafgarland/typescript-vim'
 " Initialize plug in system
 call plug#end()
+au BufNewFile,BufRead *.ts setlocal filetype=typescript
+au BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
+autocmd CursorHold * silent call CocActionAsync('highlight')
+autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
 set encoding=UTF-8
 set t_Co=256
 set cursorline
-let g:lsp_cxx_hl_use_text_props = 1
-
-colorscheme onedark
-let g:onedark_termcolors = 256
-let g:onedark_terminal_italics = 1
+colorscheme gruvbox
+set background=dark
+let g:gruvbox_invert_indent_guides=1
+"let g:onedark_termcolors = 256
+"let g:onedark_terminal_italics = 1
 let g:asyncrun_open = 6
 let g:asynctasks_term_pos = 'left'
 let g:asynctasks_term_rows = 100    " set height for the horizontal terminal split
@@ -91,9 +100,7 @@ let g:asynctasks_term_focus = 1
  noremap <silent>tio :AsyncTask file-IO<cr>
  noremap <silent>trn :AsyncTask file-run<cr>
  noremap <silent>tb :AsyncTask file-build<cr>
- 
- 
-let g:AutoPairsFlyMode = 1
+let g:AutoPairsFlyMode = 0
 let g:AutoPairsShortcutBackInsert = '<M-b>'
 " airline 
 let g:airline#extensions#tabline#enabled = 1
@@ -102,7 +109,7 @@ let g:airline#extensions#tabline#buffer_nr_show = 1       " buffer number를 보
 let g:airline#extensions#tabline#buffer_nr_format = '%s:' " buffer number format"
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#left_alt_sep = '>'
-let g:airline_theme='onedark'
+let g:airline_theme='base16_gruvbox_dark_hard'
 let g:airline#extensions#coc#enabled = 1
 " Coc - setting
 " TextEdit might fail if hidden is not set.
@@ -160,16 +167,12 @@ let g:coc_explorer_global_presets = {
 
 " Use preset argument to open it
 nmap <Leader>ef :CocCommand explorer --preset floating<CR>
-
 " List all presets
 nmap <Leader>ed :CocCommand explorer --preset simplify<CR>
-
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
-" indent line
-let g:indentLine_setColors = 50
 let g:comfortable_motion_scroll_down_key = "j"
 let g:comfortable_motion_scroll_up_key = "k"
 

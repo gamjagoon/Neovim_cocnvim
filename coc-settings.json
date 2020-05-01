@@ -3,7 +3,9 @@
 	"snippets.snipmate.enable": true,
 	"snippets.ultisnips.enable": true,
 	"snippets.extends": {
-		"cpp" : ["c"]
+		"cpp" : ["c"],
+		"javascriptreact": ["javascript","html"],
+		"typescript": ["javascript","html"]
 	},
 	"languageserver": {
 		"golang": {
@@ -16,6 +18,12 @@
 			"command": "clangd",
 			"rootPatterns": ["compile_flags.txt", "compile_commands.json"],
 			"filetypes": ["c", "cpp", "objc", "objcpp"]
+		},
+		"bash": {
+			"command": "bash-language-server",
+			"args": ["start"],
+			"filetypes": ["sh"],
+			"ignoredRootPaths": ["~"]
 		}
 	},
 	"explorer.keyMappings": {
@@ -85,4 +93,5 @@
 	},
 	"explorer.icon.enableNerdfont": true,
 	"explorer.width": 20,
+	"git.enableGutters": false,
 }
