@@ -81,15 +81,13 @@ call plug#end()
 au BufNewFile,BufRead *.ts setlocal filetype=typescript
 au BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
 autocmd CursorHold * silent call CocActionAsync('highlight')
-autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
+autocmd FileType go nmap gtx :CocCommand go.tags.clear<cr>
 set encoding=UTF-8
 set t_Co=256
 set cursorline
 colorscheme gruvbox
 set background=dark
 let g:gruvbox_invert_indent_guides=1
-"let g:onedark_termcolors = 256
-"let g:onedark_terminal_italics = 1
 let g:asyncrun_open = 6
 let g:asynctasks_term_pos = 'left'
 let g:asynctasks_term_rows = 100    " set height for the horizontal terminal split

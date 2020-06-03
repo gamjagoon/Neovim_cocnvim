@@ -26,6 +26,10 @@
 			"ignoredRootPaths": ["~"]
 		}
 	},
+	"go.goplsOptions": {
+		"completeUnimported": true
+
+	},
 	"explorer.keyMappings": {
 		"i": "unmap", // cancel default mapkey
 
@@ -92,6 +96,5 @@
 					">>": "gitUnstage"
 	},
 	"explorer.icon.enableNerdfont": true,
-	"explorer.width": 20,
-	"git.enableGutters": false,
+	"explorer.width": 20
 }
