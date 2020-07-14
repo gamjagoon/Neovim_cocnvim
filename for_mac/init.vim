@@ -1,7 +1,9 @@
 syntax on
-set foldmethod=syntax
+set list listchars=eol:$,tab:\|-,extends:>,precedes:<,space:•
 nmap <Leader>it :e ~/.config/nvim/init.vim
-nmap <Leader>li :CocList
+nmap <Leader>li :CocList<cr>
+nmap <Leader>co :CocCommand<cr>
+nmap <Leader>ts :CocList tasks<cr>
 set pastetoggle=<F2>
 set relativenumber
 nnoremap <Leader>w :write<cr>
@@ -28,7 +30,7 @@ nnoremap <Leader>o o<Esc>yy15P
 " Normal mode
 nmap <S-f> ^i
 imap <C-a> <Esc><S-a>
-imap <C-f> <Esc>^i
+imap <C-f <Esc>^i
 
 " insert mode
 imap <Leader>; <Esc><S-a>;<Esc>
@@ -71,14 +73,13 @@ Plug 'skywind3000/asyncrun.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " language setting 
-Plug 'vhda/verilog_systemverilog.vim'
+Plug 'vim-scripts/verilog_emacsauto.vim'
 
 call plug#end()
-
-" verilog systemverilog vim
-nnoremap <leader>vi :VerilogFollowInstance<CR>
-nnoremap <leader>vp :VerilogFollowPort<CR>
-nnoremap <leader>vg :VerilogGotoInstanceStart<CR>
+" autopair
+let g:AutoPairsFlyMode = 0
+let g:AutoPairsShortcutBackInsert = '<C-b>'
+let g:AutoPairs = {'(':')', '[':']', '{':'}','"':'"'}
 set encoding=UTF-8
 set t_Co=256
 set cursorline
@@ -91,20 +92,26 @@ let g:asynctasks_term_rows = 100    " set height for the horizontal terminal spl
 let g:asynctasks_term_cols = 80
 let g:asyncrun_rootmarks = ['.git', '.svn', '.root', '.project', '.hg']
 let g:asynctasks_term_focus = 1
-noremap <leader>ts :AsyncTask file-build<cr>
-noremap <silent><expr> <TAB>
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_alt_sep = '|'
+
+inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
-	let col = col('.') - 1
-	return !col || getline('.')[col - 1]  =~# '\s'
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
 " Use <C-l> for trigger snippet expand.
-imap <C-space> <Plug>(coc-snippets-expand)
+imap <C-l> <Plug>(coc-snippets-expand)
 " Use <C-j> for select text for visual placeholder of snippet.
 vmap <C-j> <Plug>(coc-snippets-select)
 " Use <C-j> for jump to next placeholder, it's default of coc.nvim
@@ -116,5 +123,4 @@ imap <C-j> <Plug>(coc-snippets-expand-jump)
 
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : 
 	                                            \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<cr>"
-nmap <leader>rn <Plug>(coc-rename)
-
+nmap <leader>rn <Plug>(coc-rename)>
