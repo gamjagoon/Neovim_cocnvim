@@ -65,6 +65,8 @@
     alias vimdiff="nvim -d"
     export EDITOR=/usr/local/bin/nvim
     sudo curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
     ```
 
 2. Install plugin   
@@ -76,6 +78,6 @@
 
 ### reference sites
 
-[neovim](https://neovim.io/doc/)
-[coc-nvim](https://github.com/neoclide/coc.nvim/wiki)
-[verilog-systemverilog.vin](https://github.com/vhda/verilog_systemverilog.vim)
+[neovim](https://neovim.io/doc/)    
+[coc-nvim](https://github.com/neoclide/coc.nvim/wiki).   
+[verilog-systemverilog.vin](https://github.com/vhda/verilog_systemverilog.vim).   
