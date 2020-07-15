@@ -5,6 +5,7 @@
 	```
 2. ```sh
 	git checkout for_mac
+	git pull origin for_mac
 	```
 3. ```sh
 	./install.sh
@@ -15,6 +16,7 @@
 	```
 2. ```sh
 	git checkout for_wsl
+	git pull origin for_wsl
 	```
 3. ```sh
 	./install.sh
