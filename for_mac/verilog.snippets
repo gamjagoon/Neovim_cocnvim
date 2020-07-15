@@ -7,9 +7,17 @@
 #		e - Custom context snippet
 #		A - Snippet will be triggered automatically, when condition matches.
 
+snippet inst "autos" i
+/*AUTOINST*/
+endsnippet
+
 snippet mod "verilog" b 
 module $1 (/*AUTOARG*/) ;
-   $2
+    /*AUTOINPUT*/
+    /*AUTOOUTPUT*/
+    /*AUTOWIRE*/
+    /*AUTOREG*/
+    $2
 endmodule //$1
 endsnippet
 
@@ -53,10 +61,6 @@ snippet assign "assign" i
 assign $1;
 endsnippet
 
-snippet deassign "deassign" i
-deassign $1;
-endsnippet
-
 snippet by "bytes" i
 [$1:$2]$3
 endsnippet
@@ -69,18 +73,6 @@ endsnippet
 
 snippet always "always" w
 always $1
-endsnippet
-
-snippet monitor "monitor" b
-$monitor("$1",$2);
-endsnippet
-
-snippet dump "dumpfile" b
-initial
-	begin
-		$dumpfile("test.vcd");
-		$dumpvars(0,test);
-	end
 endsnippet
 
 snippet negedge "negendge" i

@@ -7,6 +7,7 @@ nmap <Leader>ts :CocList tasks<cr>
 set pastetoggle=<F2>
 set relativenumber
 nnoremap <Leader>w :write<cr>
+nnoremap <Leader>ws :write<cr> :!scp '%:p' hw:~/
 nnoremap <Leader>Q :q<cr>
 nnoremap <Leader>qq :w\|bw<cr>
 nnoremap <Leader>ee :e!<cr>
