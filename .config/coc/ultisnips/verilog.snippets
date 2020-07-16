@@ -11,12 +11,16 @@ snippet inst "autos" i
 /*AUTOINST*/
 endsnippet
 
-snippet mod "verilog" b 
-module $1 (/*AUTOARG*/) ;
+snippet autos "auto" i
     /*AUTOINPUT*/
     /*AUTOOUTPUT*/
     /*AUTOWIRE*/
     /*AUTOREG*/
+    $1
+endsnippet
+
+snippet mod "verilog" b 
+module $1 (/*AUTOARG*/) ;
     $2
 endmodule //$1
 endsnippet
@@ -52,7 +56,7 @@ end
 endsnippet
 
 snippet clk "b#asic always" i
-always @(posedge clk)begin
+always @(posedge clk or negedge rst_n)begin
 	$1
 end
 endsnippet
@@ -75,7 +79,7 @@ snippet always "always" w
 always $1
 endsnippet
 
-snippet negedge "negendge" i
+snippet negedge "negedge" i
 negedge $1
 endsnippet
 
