@@ -1,21 +1,21 @@
-#!/bin/sh
+#!/bin/bash
 
-if [! -d ~/.config];then
-	mkdir ~/.config
+if [ ! -d "$HOME/.config" ]; then
+	mkdir $HOME/.config
 fi
 
-if [-d ~/.config/coc];then
-	if [-d ~/.config/coc/ultisnips];then
-		cp .config/coc/ultisnips/* ~/.config/coc/ultisnips/
-	else ;then
-		mv .config/coc/ultisnips ~/.config/coc/
+if [ -d "$HOME/.config/coc" ]; then
+	if [ -d "$HOME/.config/coc/ultisnips" ]; then
+		cp .config/coc/ultisnips/* $HOME/.config/coc/ultisnips/
+	else 
+		mv .config/coc/ultisnips $HOME/.config/coc/
 	fi
-else;then
-	mv .config/coc ~/.config/
+	else
+	mv .config/coc $HOME/.config/
 fi
 
-if [-d ~/.config/nvim];then
-	cp .config/nvim/* ~/.config/nvim/
-else;then
-	mv .config/nvim ~/.config/
+if [ -d "$HOME/.config/nvim" ];then
+	cp .config/nvim/* $HOME/.config/nvim/
+else
+	mv .config/nvim $HOME/.config/
 fi
