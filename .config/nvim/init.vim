@@ -6,9 +6,7 @@ nmap <Leader>co :CocCommand<cr>
 nmap <Leader>ts :CocList tasks<cr>
 set pastetoggle=<F2>
 set relativenumber
-nnoremap <Leader>w :write<cr>
-nnoremap <Leader>ws :write<cr> :!scp '%:p' hw:~/
-nnoremap <Leader>Q :q<cr>
+nnoremap <Leader>w :wall<cr>
 nnoremap <Leader>qq :w\|bw<cr>
 nnoremap <Leader>ee :e!<cr>
 nnoremap <Leader><space> :nohls<cr>
@@ -102,6 +100,7 @@ inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
+
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
