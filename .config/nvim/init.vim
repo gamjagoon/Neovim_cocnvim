@@ -4,8 +4,9 @@ nmap <Leader>it :e ~/.config/nvim/init.vim
 nmap <Leader>li :CocList<cr>
 nmap <Leader>co :CocCommand<cr>
 nmap <Leader>ts :CocList tasks<cr>
-set pastetoggle=<F2>
+set pastetoggle=<F5>
 set relativenumber
+set number
 nnoremap <Leader>w :wall<cr>
 nnoremap <Leader>qq :w\|bw<cr>
 nnoremap <Leader>ee :e!<cr>
@@ -16,20 +17,25 @@ nnoremap <silent>te <C-w>p:q<cr>
 " Better splits
 nnoremap sp :split<cr>
 nnoremap vs :vsplit<cr>
-nmap <Leader>b :ls<cr>:b
-imap <Leader>b <Esc>:ls<cr>:b
-nmap <silent>]b :bn<cr>
-nmap <silent>[b :bp<cr>
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" Buffer control
+nmap <Leader>b :ls<cr>:b
+imap <Leader>b <Esc>:ls<cr>:b
+nmap <silent>]b :bn<cr>
+nmap <silent>[b :bp<cr>
+
 " middle start
 nnoremap <Leader>o o<Esc>yy15P
+
 " Normal mode
 nmap <S-f> ^i
 imap <C-a> <Esc><S-a>
-imap <C-f <Esc>^i
+nnoremap <Leader>y v$hy<Esc>
+inoremap <C-v> <Esc>p
 
 " insert mode
 imap <Leader>; <Esc><S-a>;<Esc>
@@ -39,7 +45,6 @@ set noerrorbells
 set ts=4 softtabstop=4 
 set shiftwidth=4                    " 자동 들여쓰기 4칸 "
 "set expandtab "tap -> space
-set number
 set nowrap
 set splitbelow splitright
 set hlsearch                        " / ? 명령등으로 찾은 문자열을
@@ -71,6 +76,7 @@ Plug 'skywind3000/asyncrun.vim'
 " pair
 Plug 'jiangmiao/auto-pairs'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'voldikss/vim-floaterm'
 " language setting 
 Plug 'vim-scripts/verilog_emacsauto.vim'
 
@@ -126,3 +132,16 @@ let g:coc_snippet_next = '<tab>'
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : 
 	                                            \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<cr>"
 nmap <leader>rn <Plug>(coc-rename)>
+
+" floaterm
+let g:floaterm_gitcommit='floaterm'
+let g:floaterm_autoinsert=1
+let g:floaterm_width=0.8
+let g:floaterm_height=0.8
+let g:floaterm_wintitle=0
+let g:floaterm_autoclose=1
+
+let g:floaterm_keymap_toggle = '<F1>'
+let g:floaterm_keymap_next   = '<F2>'
+let g:floaterm_keymap_prev   = '<F3>'
+let g:floaterm_keymap_new    = '<F4>'
