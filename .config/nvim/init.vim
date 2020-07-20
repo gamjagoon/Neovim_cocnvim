@@ -13,7 +13,6 @@ nnoremap <Leader>ee :e!<cr>
 nnoremap <Leader><space> :nohls<cr>
 nnoremap <S-M>a :resize_<cr>
 nnoremap <S-M>x <C-w><C-w>:q<cr>
-nnoremap <silent>te <C-w>p:q<cr>
 " Better splits
 nnoremap sp :split<cr>
 nnoremap vs :vsplit<cr>
