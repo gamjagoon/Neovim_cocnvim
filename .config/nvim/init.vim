@@ -1,5 +1,7 @@
+			
+
 syntax on
-set list listchars=eol:$,tab:\|-,extends:>,precedes:<,space:•
+set list listchars=eol:$,tab:\|-,extends:>,precedes:<,space:●
 nmap <Leader>it :e ~/.config/nvim/init.vim
 nmap <Leader>li :CocList<cr>
 nmap <Leader>co :CocCommand<cr>
@@ -39,19 +41,16 @@ inoremap <C-v> <Esc>p
 " insert mode
 imap <Leader>; <Esc><S-a>;<Esc>
 nmap <Leader>; <S-a>;<Esc>
+
 " some basic 
 set noerrorbells
 set ts=4 softtabstop=4 
 set shiftwidth=4                    " 자동 들여쓰기 4칸 "
-"set expandtab "tap -> space
 set nowrap
 set splitbelow splitright
 set hlsearch                        " / ? 명령등으로 찾은 문자열을
-" 하이라이트"
 set incsearch                       " 글자를 치면 그에 맞는것을 치는 동안
-" 보여주기 "
 set scrolloff=15                     " 스크롤 할때 위아래 줄 유지, 화살표
-" 아래로 내리다 보면 아래에서 4줄 유지한 상황에서 스크롤 됨 "
 set hidden
 set nobackup
 set smartcase
@@ -66,7 +65,7 @@ call plug#begin()
 " Shorthand notation; fetches 
 Plug 'junegunn/vim-easy-align'
 " theme
-Plug 'https://github.com/morhetz/gruvbox'
+Plug 'https://github.com/lifepillar/vim-gruvbox8'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " task manager
@@ -84,12 +83,16 @@ call plug#end()
 let g:AutoPairsFlyMode = 0
 let g:AutoPairsShortcutBackInsert = '<C-b>'
 let g:AutoPairs = {'(':')', '[':']', '{':'}','"':'"'}
+" colorscheme setting
+
 set encoding=UTF-8
-set t_Co=256
 set cursorline
-colorscheme gruvbox
+set termguicolors     " enable true colors support
 set background=dark
+
+colorscheme gruvbox8
 let g:gruvbox_invert_indent_guides=1
+
 let g:asyncrun_open = 6
 let g:asynctasks_term_pos = 'left'
 let g:asynctasks_term_rows = 100    " set height for the horizontal terminal split
@@ -99,7 +102,7 @@ let g:asynctasks_term_focus = 1
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline_theme= 'powerlineish'
+let g:airline_theme = 'powerlineish'
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
