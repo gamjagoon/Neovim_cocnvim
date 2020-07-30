@@ -1,8 +1,6 @@
-			
-
 syntax on
 set list listchars=eol:$,tab:\|-,extends:>,precedes:<,space:●
-nmap <Leader>it :e ~/.config/nvim/init.vim
+nmap <Leader>it :e ~/.config/nvim/init.vim<cr>
 nmap <Leader>li :CocList<cr>
 nmap <Leader>co :CocCommand<cr>
 nmap <Leader>ts :CocList tasks<cr>
@@ -12,9 +10,10 @@ set number
 nnoremap <Leader>w :wall<cr>
 nnoremap <Leader>qq :w\|bw<cr>
 nnoremap <Leader>ee :e!<cr>
+nnoremap <Leader>1 $bi<space><TAB><TAB><TAB><TAB><Esc>
+nnoremap <Leader>2 jdw
 nnoremap <Leader><space> :nohls<cr>
-nnoremap <S-M>a :resize_<cr>
-nnoremap <S-M>x <C-w><C-w>:q<cr>
+nnoremap <Leader>S 0dweldwi<space><Esc>
 " Better splits
 nnoremap sp :split<cr>
 nnoremap vs :vsplit<cr>
@@ -44,8 +43,8 @@ nmap <Leader>; <S-a>;<Esc>
 
 " some basic 
 set noerrorbells
-set ts=4 softtabstop=4 
-set shiftwidth=4                    " 자동 들여쓰기 4칸 "
+set ts=3 softtabstop=3
+set shiftwidth=3                    " 자동 들여쓰기 4칸 "
 set nowrap
 set splitbelow splitright
 set hlsearch                        " / ? 명령등으로 찾은 문자열을
@@ -76,8 +75,8 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'voldikss/vim-floaterm'
 " language setting 
+Plug 'fatih/vim-go'
 Plug 'vim-scripts/verilog_emacsauto.vim'
-
 call plug#end()
 " autopair
 let g:AutoPairsFlyMode = 0
