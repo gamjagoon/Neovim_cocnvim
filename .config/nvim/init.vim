@@ -44,12 +44,12 @@ nmap <Leader>; <S-a>;<Esc>
 " some basic 
 set noerrorbells
 set ts=3 softtabstop=3
-set shiftwidth=3                    " 자동 들여쓰기 4칸 "
+set shiftwidth=3
 set nowrap
 set splitbelow splitright
-set hlsearch                        " / ? 명령등으로 찾은 문자열을
-set incsearch                       " 글자를 치면 그에 맞는것을 치는 동안
-set scrolloff=15                     " 스크롤 할때 위아래 줄 유지, 화살표
+set hlsearch
+set incsearch
+set scrolloff=20
 set hidden
 set nobackup
 set smartcase
@@ -110,6 +110,11 @@ inoremap <silent><expr> <TAB>
 
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
@@ -122,7 +127,6 @@ imap <C-l> <Plug>(coc-snippets-expand)
 " Use <C-j> for select text for visual placeholder of snippet.
 vmap <C-j> <Plug>(coc-snippets-select)
 
-
 " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
 let g:coc_snippet_prev = '<c-k>'
 
@@ -133,6 +137,7 @@ let g:coc_snippet_next = '<tab>'
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : 
 	                                            \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<cr>"
 nmap <leader>rn <Plug>(coc-rename)>
+
 
 " floaterm
 let g:floaterm_gitcommit='floaterm'
