@@ -48,6 +48,7 @@ export TUT_DIR=$DIR/chisel-tutorial
 export workspace="$DIR/chisel-tutorial/src/main/scala"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 export PATH="/usr/local/opt/flex/bin:$PATH"
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
