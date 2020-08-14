@@ -14,3 +14,8 @@ chmod u+x nvim.appimage
 echo alias vi=\"$HOME/.local/nvim.appimage\" >> ~/.zshrc
 echo alias vim=\"$HOME/.local/nvim.appimage\" >> ~/.zshrc
 echo alias nvim=\"$HOME/.local/nvim.appimage\" >> ~/.zshrc
+
+cd
+git clone https://github.com/gpakosz/.tmux.git
+ln -s -f .tmux/.tmux.conf
+cp .tmux/.tmux.conf.local .
