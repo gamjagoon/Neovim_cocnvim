@@ -74,6 +74,7 @@ Plug 'skywind3000/asyncrun.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'voldikss/vim-floaterm'
+Plug 'junegunn/vim-easy-align'
 " language setting 
 Plug 'fatih/vim-go'
 Plug 'vim-scripts/verilog_emacsauto.vim'

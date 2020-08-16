@@ -1,5 +1,4 @@
 {
-	
 	"git.enableGutters": false,
 	"languageserver": 
 	{ 
@@ -9,5 +8,8 @@
 			"rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
 			"filetypes": ["go"]
 		}
-	}
+	},
+	"metals.enable": true,
+	"metals.enableStripMarginOnTypeFormatting": true,
+	"coc.preferences.formatOnSaveFiletypes": ["scala"]
 }
