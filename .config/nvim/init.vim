@@ -4,6 +4,7 @@ nmap <Leader>it :e ~/.config/nvim/init.vim<cr>
 nmap <Leader>li :CocList<cr>
 nmap <Leader>co :CocCommand<cr>
 nmap <Leader>ts :CocList tasks<cr>
+nmap <Leader>ma :vi .<cr> :vertical resize 20%<cr> :set wfw wfh<cr> <C-w>w
 set pastetoggle=<F5>
 set relativenumber
 set number

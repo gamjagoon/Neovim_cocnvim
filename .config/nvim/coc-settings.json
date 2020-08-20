@@ -10,6 +10,5 @@
 		}
 	},
 	"metals.enable": true,
-	"metals.enableStripMarginOnTypeFormatting": true,
-	"coc.preferences.formatOnSaveFiletypes": ["scala"]
+	"metals.enableStripMarginOnTypeFormatting": true
 }

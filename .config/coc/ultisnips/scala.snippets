@@ -1,0 +1,44 @@
+
+snippet description "Description" b
+//-----------------------------------------------------------------------------
+// File          : `!v expand('%:t')`
+// Author        : MinJae Kim  <gimminjae@islab.re.kr>
+// Created       : `date +%d.%m.20%y`
+// Last modified : `date +%d.%m.20%y`
+//-----------------------------------------------------------------------------
+// Description :
+// $1
+//-----------------------------------------------------------------------------
+// Copyright (c) 2020 by ISLab This model is the confidential and
+// proprietary property of ISLab and the possession or use of this
+// file requires a written license from ISLab.
+$2
+endsnippet
+
+snippet pack "start" b
+package `!v expand('%:p:h:t')`
+
+import chisel3._
+
+class `!v expand('%:r')` extends Module {
+  val io = IO(new Bundle {
+  })
+
+}
+
+object `!v expand('%:r')`Driver extends App {
+  chisel3.Driver.execute(args, ()=> new `!v expand('%:r')`)
+}
+endsnippet
+
+snippet when "when" i
+when($1) {
+  $2
+} $3
+endsnippet
+
+snippet elsewhen "elsewhen" i
+.elsewhen($1){
+  $2
+} $3
+endsnippet
