@@ -1,10 +1,17 @@
 syntax on
+" netrw sttings
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_altv = 1
+let g:netrw_browse_split = 4
+let g:netrw_winsize = 18
+nmap <Leader>ma :Vex<cr> :set wfh<cr> :set wfw<cr>
+
 set list listchars=eol:$,tab:\|-,extends:>,precedes:<,space:●
 nmap <Leader>it :e ~/.config/nvim/init.vim<cr>
 nmap <Leader>li :CocList<cr>
 nmap <Leader>co :CocCommand<cr>
 nmap <Leader>ts :CocList tasks<cr>
-nmap <Leader>ma :vi .<cr> :vertical resize 20%<cr> :set wfw wfh<cr> <C-w>w
 set pastetoggle=<F5>
 set relativenumber
 set number
