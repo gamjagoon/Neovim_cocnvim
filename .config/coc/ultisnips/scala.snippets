@@ -20,14 +20,14 @@ package `!v expand('%:p:h:t')`
 
 import chisel3._
 
-class `!v expand('%:r')` extends Module {
+class `!v expand('%:t:r')` extends Module {
   val io = IO(new Bundle {
   })
 
 }
 
-object `!v expand('%:r')`Driver extends App {
-  chisel3.Driver.execute(args, ()=> new `!v expand('%:r')`)
+object `!v expand('%:t:r')`Driver extends App {
+  chisel3.Driver.execute(args, ()=> new `!v expand('%:t:r')`)
 }
 endsnippet
 
@@ -41,4 +41,10 @@ snippet elsewhen "elsewhen" i
 .elsewhen($1){
   $2
 } $3
+endsnippet
+
+snippet class "class" b
+class $1 extends $2 {
+  $3
+}
 endsnippet

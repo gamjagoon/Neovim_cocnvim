@@ -4,8 +4,9 @@ let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_altv = 1
 let g:netrw_browse_split = 4
-let g:netrw_winsize = 18
+let g:netrw_winsize = 15
 nmap <Leader>ma :Vex<cr> :set wfh<cr> :set wfw<cr>
+nmap <Leader>rs :vertical-resize -t 2 20<cr> :set wfh<cr> :set wfw<cr>
 
 set list listchars=eol:$,tab:\|-,extends:>,precedes:<,space:●
 nmap <Leader>it :e ~/.config/nvim/init.vim<cr>
