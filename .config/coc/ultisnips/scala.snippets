@@ -1,5 +1,5 @@
 
-snippet description "Description" b
+snippet File "Description" b
 //-----------------------------------------------------------------------------
 // File          : `!v expand('%:t')`
 // Author        : MinJae Kim  <gimminjae@islab.re.kr>
@@ -15,10 +15,18 @@ snippet description "Description" b
 $2
 endsnippet
 
+snippet description "Description" b
+//-----------------------------------------------------------------------------
+// Description :
+// $1
+//-----------------------------------------------------------------------------
+endsnippet
+
 snippet pack "start" b
 package `!v expand('%:p:h:t')`
 
 import chisel3._
+import chisel3.util._
 
 class `!v expand('%:t:r')` extends Module {
   val io = IO(new Bundle {

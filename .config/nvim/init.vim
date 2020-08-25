@@ -1,18 +1,12 @@
 syntax on
-" netrw sttings
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_altv = 1
-let g:netrw_browse_split = 4
-let g:netrw_winsize = 15
-nmap <Leader>ma :Vex<cr> :set wfh<cr> :set wfw<cr>
-nmap <Leader>rs :vertical-resize -t 2 20<cr> :set wfh<cr> :set wfw<cr>
 
 set list listchars=eol:$,tab:\|-,extends:>,precedes:<,space:●
-nmap <Leader>it :e ~/.config/nvim/init.vim<cr>
-nmap <Leader>li :CocList<cr>
-nmap <Leader>co :CocCommand<cr>
-nmap <Leader>ts :CocList tasks<cr>
+nnoremap <silent> <Leader>it :e ~/.config/nvim/init.vim<cr>
+nnoremap <silent> <Leader>l :CocList<cr>
+nnoremap <silent> <Leader>c :CocCommand<cr>
+nnoremap <silent> <Leader>ts :CocList tasks<cr>
+nnoremap <silent> <Leader>di  :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <space>e  :CocCommand explorer<cr>
 set pastetoggle=<F5>
 set relativenumber
 set number
@@ -36,6 +30,8 @@ nmap <Leader>b :ls<cr>:b
 imap <Leader>b <Esc>:ls<cr>:b
 nmap <silent>]b :bn<cr>
 nmap <silent>[b :bp<cr>
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " middle start
 nnoremap <Leader>o o<Esc>yy15P
@@ -147,6 +143,12 @@ let g:coc_snippet_next = '<tab>'
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : 
 	                                            \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<cr>"
 nmap <leader>rn <Plug>(coc-rename)>
+" Remap for do codeAction of current line
+nmap <leader>A  <Plug>(coc-codeaction-line)
+
+
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+      \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 
 " floaterm
