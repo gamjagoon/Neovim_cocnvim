@@ -50,6 +50,7 @@ nmap <Leader>; <S-a>;<Esc>
 set noerrorbells
 set ts=3 softtabstop=3
 set shiftwidth=3
+set expandtab
 set nowrap
 set splitbelow splitright
 set hlsearch
