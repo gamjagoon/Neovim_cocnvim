@@ -1,0 +1,14 @@
+{
+	"git.enableGutters": false,
+	"languageserver": 
+	{ 
+		"golang": 
+		{
+			"command": "gopls",
+			"rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+			"filetypes": ["go"]
+		}
+	},
+	"metals.enable": true,
+	"metals.enableStripMarginOnTypeFormatting": true
+}

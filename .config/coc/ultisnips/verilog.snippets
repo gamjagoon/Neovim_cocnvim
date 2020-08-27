@@ -1,0 +1,177 @@
+# Snippet options:
+#
+#		b - Beginning of line.
+#		i - In-word expansion.
+#		w - Word boundary.
+#		r - Regular expression
+#		e - Custom context snippet
+#		A - Snippet will be triggered automatically, when condition matches.
+
+snippet inst "autos" i
+/*AUTOINST*/
+endsnippet
+
+snippet autos "auto" i
+/*AUTOINPUT*/
+/*AUTOOUTPUT*/
+/*AUTOWIRE*/
+/*AUTOREG*/
+$1
+endsnippet
+
+snippet mod "verilog" b 
+module $1 (/*AUTOARG*/) ;
+    $2
+endmodule //$1
+endsnippet
+
+snippet wid "short" i
+WIDTH
+endsnippet
+
+snippet par "Description" b
+parameter $1 = $2;
+endsnippet
+
+snippet output "output ;" i
+output			$1;
+endsnippet
+
+snippet input "input ;" i
+input			$1;
+endsnippet
+
+snippet reg "reg" i
+reg				$1;
+endsnippet
+
+snippet wire "wire ;" i
+wire			$1;
+endsnippet
+
+snippet init "initial" b
+initial begin
+	$1
+end
+endsnippet
+
+snippet clk "b#asic always" i
+always @(posedge clk or negedge rst_n)begin
+	if(!rst_n) begin
+		$1
+	end else begin
+		
+	end
+end
+endsnippet
+
+snippet assign "assign" i
+assign			$1;
+endsnippet
+
+snippet by "bytes" i
+[$1:$2]$3
+endsnippet
+
+snippet begin "begin" i
+begin
+	$1
+end
+endsnippet
+
+snippet always "always" w
+always @($1) begin
+	$2
+end
+endsnippet
+
+snippet negedge "negedge" i
+negedge $1
+endsnippet
+
+snippet if "if" b
+if($1) begin
+	$2
+end
+endsnippet
+
+snippet elseif "else if" i
+else if($1) begin
+	$2
+end
+endsnippet
+
+snippet else "else" i
+else begin
+	$1
+end
+endsnippet
+
+snippet syn "clk rst_n" b
+// Synchronous clock with asynchronous reset
+input             clk;
+input             rst_n;
+$1
+endsnippet
+
+snippet description "Description" b
+//-----------------------------------------------------------------------------
+// File          : ${1}
+// Author        : MinJae Kim  <gimminjae@islab.re.kr>
+// Created       : $3.$2.2020
+// Last modified : $3.$2.2020
+//-----------------------------------------------------------------------------
+// Description :
+// $4
+//-----------------------------------------------------------------------------
+// Copyright (c) 2020 by ISLab This model is the confidential and
+// proprietary property of ISLab and the possession or use of this
+// file requires a written license from ISLab.
+$5
+endsnippet
+
+snippet title "Description" b
+//-----------------------------------------------------------------------------
+// Title       : $1
+// Description : $2
+//-----------------------------------------------------------------------------
+$3
+endsnippet
+
+snippet and "logic and" i
+ && $1
+endsnippet
+
+snippet or "logical or" i
+ || $1
+endsnippet
+
+snippet counter "counter" b
+//-----------------------------------------------------------------------------
+// Title       : Counter
+//-----------------------------------------------------------------------------
+reg [$1:$2] $3;
+
+// Watchdog Control Signal
+wire   cnt_init;  // counter init signal
+wire   cnt_incr;  // counter increase signal
+
+assign cnt_inti = ;
+assign cnt_incr = ;
+
+always @ (posedge clk or negedge rst_n) begin
+	if(!rst_n) begin
+		cnt <= 'b0;
+	end else begin
+		if(cnt_init) begin
+			cnt <= 'b0;
+		end else if(cnt_incr) begin
+			cnt <= cnt + 'd1;
+		end
+	end
+end
+endsnippet
+
+snippet space "buf" i
+             
+endsnippet
