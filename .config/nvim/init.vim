@@ -1,7 +1,19 @@
 syntax on
 
+" clipboard settings
+set clipboard=unnamedplus
+vnoremap <C-c> "+y
+map <C-v> "+P
+
+
+" listchars settings
 set list listchars=eol:$,tab:\|-,extends:>,precedes:<,space:●
+noremap <F6> :set list!<CR>
+inoremap <F6> <C-o>:set list!<CR>
+cnoremap <F6> <C-c>:set list!<CR>
 nnoremap <silent> <Leader>it :e ~/.config/nvim/init.vim<cr>
+
+" Coc key settings
 nnoremap <silent> <Leader>l :CocList<cr>
 nnoremap <silent> <Leader>c :CocCommand<cr>
 nnoremap <silent> <Leader>ts :CocList tasks<cr>
