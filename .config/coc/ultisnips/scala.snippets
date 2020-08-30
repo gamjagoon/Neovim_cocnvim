@@ -1,3 +1,9 @@
+#		b - Beginning of line.
+#		i - In-word expansion.
+#		w - Word boundary.
+#		r - Regular expression
+#		e - Custom context snippet
+#		A - Snippet will be triggered automatically, when condition matches.
 
 snippet File "Description" b
 //-----------------------------------------------------------------------------
@@ -27,9 +33,7 @@ snippet description "Description" b
 //-----------------------------------------------------------------------------
 endsnippet
 
-snippet pack "start" b
-package `!v expand('%:p:h:t')`
-
+snippet Temp "start" b
 import chisel3._
 import chisel3.util._
 
@@ -44,7 +48,15 @@ object `!v expand('%:t:r')`Driver extends App {
 }
 endsnippet
 
-snippet when "when" i
+snippet Input "Input" i
+Input($1)
+endsnippet
+
+snippet Output "Input" i
+Output($1)
+endsnippet
+
+snippet when "when" b
 when($1) {
   $2
 }$3
@@ -62,7 +74,7 @@ class $1 extends $2 {
 }
 endsnippet
 
-snippet Tester "Testter" i
+snippet Tester "Testter" b
 package `!v expand('%:p:h:t')`
 
 import java.io.File
