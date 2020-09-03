@@ -5,7 +5,6 @@ set clipboard=unnamedplus
 vnoremap <C-c> "+y
 map <C-v> "+P
 
-
 " listchars settings
 set list listchars=eol:$,tab:\|-,extends:>,precedes:<,space:●
 noremap <F6> :set list!<CR>
