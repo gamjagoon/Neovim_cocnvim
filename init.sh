@@ -7,7 +7,7 @@ tar xzvf nvim-macos.tar.gz
 
 # install nodejs
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
-nvm install 14.5.0
+nvm install 14.7.0
 
 # install neovim
 npm i -g neovim

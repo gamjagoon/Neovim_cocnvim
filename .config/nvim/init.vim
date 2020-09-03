@@ -18,7 +18,42 @@ nnoremap <silent> <Leader>l :CocList<cr>
 nnoremap <silent> <Leader>c :CocCommand<cr>
 nnoremap <silent> <Leader>ts :CocList tasks<cr>
 nnoremap <silent> <Leader>di  :<C-u>CocList diagnostics<cr>
-nnoremap <silent> <space>e  :CocCommand explorer<cr>
+let g:coc_explorer_global_presets = {
+\   '.vim': {
+\     'root-uri': '~/.vim',
+\   },
+\   'tab': {
+\     'position': 'tab',
+\     'quit-on-open': v:true,
+\   },
+\   'floating': {
+\     'position': 'floating',
+\     'open-action-strategy': 'sourceWindow',
+\   },
+\   'floatingTop': {
+\     'position': 'floating',
+\     'floating-position': 'center-top',
+\     'open-action-strategy': 'sourceWindow',
+\   },
+\   'floatingLeftside': {
+\     'position': 'floating',
+\     'floating-position': 'left-center',
+\     'floating-width': 50,
+\     'open-action-strategy': 'sourceWindow',
+\   },
+\   'floatingRightside': {
+\     'position': 'floating',
+\     'floating-position': 'right-center',
+\     'floating-width': 50,
+\     'open-action-strategy': 'sourceWindow',
+\   },
+\   'simplify': {
+\     'file-child-template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]'
+\   }
+\ }
+nmap <silent> <space>e  :CocCommand explorer<cr>
+nmap <space>f :CocCommand explorer --preset floating<CR>
+autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
 set pastetoggle=<F5>
 set relativenumber
 set number
@@ -60,9 +95,8 @@ nmap <Leader>; <S-a>;<Esc>
 
 " some basic 
 set noerrorbells
-set ts=3 softtabstop=3
+set ts=3 softtabstop=3 et
 set shiftwidth=3
-set expandtab
 set nowrap
 set splitbelow splitright
 set hlsearch
@@ -139,24 +173,14 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-
-" Use <C-l> for trigger snippet expand.
 imap <C-l> <Plug>(coc-snippets-expand)
-
-" Use <C-j> for select text for visual placeholder of snippet.
 vmap <C-j> <Plug>(coc-snippets-select)
-
-" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-let g:coc_snippet_prev = '<c-k>'
-
-" Use <C-j> for both expand and jump (make expand higher priority.)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
 
 let g:coc_snippet_next = '<tab>'
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : 
 	                                            \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<cr>"
 nmap <leader>rn <Plug>(coc-rename)>
-" Remap for do codeAction of current line
 nmap <leader>A  <Plug>(coc-codeaction-line)
 
 
