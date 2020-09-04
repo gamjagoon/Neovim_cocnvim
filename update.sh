@@ -20,3 +20,5 @@ if [ -d $directory1 ] && [ -d $directory2 ] && [ -f $file_init ] && [ -f $file_j
 fi
 
 echo "end"
+
+git add . && git commit -m "updatae" && git push

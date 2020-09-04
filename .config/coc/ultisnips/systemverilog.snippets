@@ -60,6 +60,28 @@ initial begin
 end
 endsnippet
 
+snippet logic "Description" i
+logic $1;
+endsnippet
+
+snippet interface "Description" i
+interface $1;
+	$2
+endinterface
+endsnippet
+
+snippet class "Description" i
+class $1;
+	$2
+endclass
+endsnippet
+
+snippet function "Description" i
+function $1;
+	$2
+endfunction
+endsnippet
+
 snippet clk "b#asic always" i
 always @(posedge clk or negedge rst_n)begin
 	if(!rst_n) begin
@@ -139,14 +161,6 @@ snippet title "Description" b
 $3
 endsnippet
 
-snippet and "logic and" i
- && $1
-endsnippet
-
-snippet or "logical or" i
- || $1
-endsnippet
-
 snippet counter "counter" b
 //-----------------------------------------------------------------------------
 // Title       : Counter
@@ -173,6 +187,13 @@ always @ (posedge clk or negedge rst_n) begin
 end
 endsnippet
 
-snippet space "buf" i
-             
+
+snippet display "Description" i
+$display("");
+endsnippet
+
+snippet task "task" i
+task $1;
+   $1
+endtask
 endsnippet

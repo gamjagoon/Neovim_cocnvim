@@ -12,6 +12,12 @@ inoremap <F6> <C-o>:set list!<CR>
 cnoremap <F6> <C-c>:set list!<CR>
 nnoremap <silent> <Leader>it :e ~/.config/nvim/init.vim<cr>
 
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+xmap av :EasyAlign 2\ {'a':'r'}<CR>
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
 " Coc key settings
 nnoremap <silent> <Leader>l :CocList<cr>
 nnoremap <silent> <Leader>c :CocCommand<cr>
@@ -199,3 +205,5 @@ let g:floaterm_keymap_toggle = '<F1>'
 let g:floaterm_keymap_next   = '<F2>'
 let g:floaterm_keymap_prev   = '<F3>'
 let g:floaterm_keymap_new    = '<F4>'
+
+au Filetype systemverilog source $HOME/.config/nvim/plugged/verilog_emacsauto.vim/ftplugin/verilog_emacsauto.vim
