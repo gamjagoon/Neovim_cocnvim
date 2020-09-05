@@ -1,8 +1,5 @@
 syntax on
 
-" get highlight id
-source $HOME/.config/nvim/tmp.vim
-map <F10> :call SynStack()<CR>
 " clipboard settings
 set clipboard=unnamedplus
 vnoremap <C-c> "+y
