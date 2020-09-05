@@ -1,5 +1,8 @@
 syntax on
 
+" get highlight id
+source $HOME/.config/nvim/tmp.vim
+map <F10> :call SynStack()<CR>
 " clipboard settings
 set clipboard=unnamedplus
 vnoremap <C-c> "+y
@@ -207,3 +210,6 @@ let g:floaterm_keymap_prev   = '<F3>'
 let g:floaterm_keymap_new    = '<F4>'
 
 au Filetype systemverilog source $HOME/.config/nvim/plugged/verilog_emacsauto.vim/ftplugin/verilog_emacsauto.vim
+
+" color setting 
+hi LineNr guifg=#d75f5f

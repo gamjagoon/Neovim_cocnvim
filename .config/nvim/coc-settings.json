@@ -10,7 +10,8 @@
 		},
       "svls": {
         "command": "svls",
-        "filetypes": ["systemverilog"]
+        "rootPatterns":[".svls.toml"],
+        "filetypes": ["systemverilog","verilog"]
       }
 	},
 	"metals.enable": true,
