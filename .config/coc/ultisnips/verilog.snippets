@@ -21,7 +21,7 @@ endsnippet
 
 snippet modul "moduele" b 
 module $1 (/*AUTOARG*/) ;
-    $2
+   $2
 endmodule //$1
 endsnippet
 
@@ -34,19 +34,19 @@ parameter $1 = $2;
 endsnippet
 
 snippet output "output ;" i
-output $1;
+output         $1;
 endsnippet
 
 snippet input "input ;" i
-input $1;
+input           $1;
 endsnippet
 
 snippet reg "reg" i
-reg $1;
+reg             $1;
 endsnippet
 
 snippet wire "wire ;" i
-wire $1;
+wire            $1;
 endsnippet
 
 snippet assign "assign" i
@@ -109,8 +109,8 @@ endsnippet
 
 snippet syn "clk rst_n" b
 // Synchronous clock with asynchronous reset
-input             clk;
-input             rst_n;
+input           clk;
+input         rst_n;
 $1
 endsnippet
 
@@ -170,8 +170,4 @@ always @ (posedge clk or negedge rst_n) begin
 		end
 	end
 end
-endsnippet
-
-snippet space "buf" i
-             
 endsnippet

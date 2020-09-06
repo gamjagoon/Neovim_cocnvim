@@ -163,28 +163,25 @@ let g:airline_theme = 'powerlineish'
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
+let g:coc_snippet_next = '<tab>'
 
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : 
+                        \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<cr>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-imap <C-l> <Plug>(coc-snippets-expand)
-vmap <C-j> <Plug>(coc-snippets-select)
-imap <C-j> <Plug>(coc-snippets-expand-jump)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
-let g:coc_snippet_next = '<tab>'
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : 
-                        \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<cr>"
+
 nmap <leader>rn <Plug>(coc-rename)>
 nmap <leader>A  <Plug>(coc-codeaction-line)
 
