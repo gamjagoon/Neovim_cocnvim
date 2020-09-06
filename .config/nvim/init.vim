@@ -184,14 +184,9 @@ imap <C-j> <Plug>(coc-snippets-expand-jump)
 
 let g:coc_snippet_next = '<tab>'
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : 
-	                                            \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<cr>"
+                        \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<cr>"
 nmap <leader>rn <Plug>(coc-rename)>
 nmap <leader>A  <Plug>(coc-codeaction-line)
-
-
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-      \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
 
 " floaterm
 let g:floaterm_gitcommit='floaterm'
