@@ -14,7 +14,7 @@ nnoremap <silent> <Leader>it :e ~/.config/nvim/init.vim<cr>
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
-xmap av :EasyAlign 2\ {'a':'r'}<CR>
+xmap av :EasyAlign */  / l2al<CR>
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
@@ -143,7 +143,6 @@ let g:AutoPairs = {'(':')', '[':']', '{':'}','"':'"'}
 " colorscheme setting
 
 set encoding=UTF-8
-set cursorline
 set termguicolors     " enable true colors support
 set background=dark
 
@@ -202,3 +201,6 @@ au Filetype systemverilog source $HOME/.config/nvim/plugged/verilog_emacsauto.vi
 
 " color setting 
 hi LineNr guifg=#d75f5f
+set cursorline
+hi clear CursorLine
+hi CursorLine gui=underline
