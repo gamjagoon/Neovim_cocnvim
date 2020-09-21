@@ -12,11 +12,9 @@ inoremap <F6> <C-o>:set list!<CR>
 cnoremap <F6> <C-c>:set list!<CR>
 nnoremap <silent> <Leader>it :e ~/.config/nvim/init.vim<cr>
 
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
 xmap av :EasyAlign */  / l2al<CR>
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
+nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
+nnoremap <silent> <leader>f :vimgrep /\<<C-r><C-w>\>/g */*.v<cr> :cw<cr>
 
 " Coc key settings
 nnoremap <silent> <Leader>l :CocList<cr>
