@@ -11,6 +11,10 @@ snippet inst "autos" i
 /*AUTOINST*/
 endsnippet
 
+snippet arg "autos" i
+/*AUTOARG*/
+endsnippet
+
 snippet autos "auto" i
 /*AUTOINPUT*/
 /*AUTOOUTPUT*/
@@ -130,6 +134,22 @@ snippet File "Description" b
 $2
 endsnippet
 
+snippet ARR4 "Description" i
+{${1:data}[3],${1:data}[2],${1:data}[1],${1:data}[0]};
+endsnippet
+
+snippet ARR8 "Description" i
+{${1:data}[7],${1:data}[6],${1:data}[5],${1:data}[4],
+${1:data}[3],${1:data}[2],${1:data}[1],${1:data}[0]};
+endsnippet
+
+snippet ARR16 "Description" i
+{${1:data}[15],${1:data}[14],${1:data}[13],${1:data}[12],
+${1:data}[11],${1:data}[10],${1:data}[9],${1:data}[8],
+${1:data}[7],${1:data}[6],${1:data}[5],${1:data}[4],
+${1:data}[3],${1:data}[2],${1:data}[1],${1:data}[0]};
+endsnippet
+
 snippet title "Description" b
 //-----------------------------------------------------------------------------
 // Title       : $1
@@ -170,9 +190,19 @@ always @ (posedge clk or negedge rst_n) begin
 		end
 	end
 end
+
 endsnippet
 
-snippet STINIT "ST_INIT" b
+snippet generate "Description" i
+genvar $1;
+generate
+   for($1 = 0; $1 < $2; $1 = $1 + 1)begin : gen
+      $3
+   end
+endgenerate
+endsnippet
+
+snippet FSMINIT "ST_INIT" b
 // Localparam for FSM
 localparam ST_SIZE        = 9;
 localparam ${1:CLEAR}     = {{(ST_SIZE-1){1'b0}}, 1'b1} << 0;

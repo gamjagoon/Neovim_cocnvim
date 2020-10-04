@@ -21,6 +21,9 @@ nnoremap <silent> <Leader>l :CocList<cr>
 nnoremap <silent> <Leader>c :CocCommand<cr>
 nnoremap <silent> <Leader>ts :CocList tasks<cr>
 nnoremap <silent> <Leader>di  :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <Leader>mt  :CocCommand bookmark.toggle<cr>
+nnoremap <silent> <Leader>[[  :CocCommand bookmark.prev<cr>
+nnoremap <silent> <Leader>]]  :CocCommand bookmark.next<cr>
 let g:coc_explorer_global_presets = {
 \   '.vim': {
 \     'root-uri': '~/.vim',

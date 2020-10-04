@@ -1,5 +1,5 @@
 {
-	"git.enableGutters": true,
+	"git.enableGutters": false,
 	"languageserver": 
 	{ 
 		"golang": 
