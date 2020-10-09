@@ -261,30 +261,4 @@ always @ (*) begin
 	  end
 	endcase // case (state)
 end
-
-// always block to compute output
-always @ (*) begin
-	// output register init
-	
-	case (state)
-	  ${1:CLEAR} : begin
-	  end
-	  ${2:ST1}  : begin
-	  end
-	  ${3:ST2}  : begin
-	  end
-	  ${4:ST3} : begin
-	  end
-	  ${5:ST4} : begin
-	  end
-	  ${6:ST5} : begin
-	  end
-	  ${7:ST6} : begin
-	  end
-	  ${8:ST7} : begin
-	  end
-	  ${9:ST8} : begin
-	  end
-	endcase // case (state)
-end
 endsnippet

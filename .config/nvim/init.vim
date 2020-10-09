@@ -7,6 +7,7 @@ map <C-v> "+P
 
 " listchars settings
 set list listchars=eol:$,tab:\|-,extends:>,precedes:<,space:●
+set pastetoggle=<F5>
 noremap <F6> :set list!<CR>
 inoremap <F6> <C-o>:set list!<CR>
 cnoremap <F6> <C-c>:set list!<CR>
@@ -14,7 +15,8 @@ nnoremap <silent> <Leader>it :e ~/.config/nvim/init.vim<cr>
 
 xmap av :EasyAlign */  / l2al<CR>
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
-nnoremap <silent> <leader>f :vimgrep /\<<C-r><C-w>\>/g */*.v<cr> :cw<cr>
+nnoremap <silent> <space>f :vimgrep /\<<C-r><C-w>\>/g */*.v<cr> :cw<cr>
+nnoremap <silent> <space>d
 
 " Coc key settings
 nnoremap <silent> <Leader>l :CocList<cr>
@@ -22,8 +24,8 @@ nnoremap <silent> <Leader>c :CocCommand<cr>
 nnoremap <silent> <Leader>ts :CocList tasks<cr>
 nnoremap <silent> <Leader>di  :<C-u>CocList diagnostics<cr>
 nnoremap <silent> <Leader>mt  :CocCommand bookmark.toggle<cr>
-nnoremap <silent> <Leader>[[  :CocCommand bookmark.prev<cr>
-nnoremap <silent> <Leader>]]  :CocCommand bookmark.next<cr>
+nnoremap <silent> <Leader>[  :CocCommand bookmark.prev<cr>
+nnoremap <silent> <Leader>]  :CocCommand bookmark.next<cr>
 let g:coc_explorer_global_presets = {
 \   '.vim': {
 \     'root-uri': '~/.vim',
@@ -44,13 +46,13 @@ let g:coc_explorer_global_presets = {
 \   'floatingLeftside': {
 \     'position': 'floating',
 \     'floating-position': 'left-center',
-\     'floating-width': 50,
+\     'floating-width': 40,
 \     'open-action-strategy': 'sourceWindow',
 \   },
 \   'floatingRightside': {
 \     'position': 'floating',
 \     'floating-position': 'right-center',
-\     'floating-width': 50,
+\     'floating-width': 40,
 \     'open-action-strategy': 'sourceWindow',
 \   },
 \   'simplify': {
@@ -58,9 +60,7 @@ let g:coc_explorer_global_presets = {
 \   }
 \ }
 nmap <silent> <space>e  :CocCommand explorer<cr>
-nmap <space>f :CocCommand explorer --preset floating<CR>
 autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
-set pastetoggle=<F5>
 set relativenumber
 set number
 nnoremap <Leader>w :wall<cr>
