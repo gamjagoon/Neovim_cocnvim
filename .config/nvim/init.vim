@@ -15,7 +15,7 @@ nnoremap <silent> <Leader>it :e ~/.config/nvim/init.vim<cr>
 
 xmap av :EasyAlign */  / l2al<CR>
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
-nnoremap <silent> <space>f :vimgrep /\<<C-r><C-w>\>/g */*.v<cr> :cw<cr>
+nnoremap <silent> <space>f :vimgrep /\<<C-r><C-w>\>/g ./*/*.v<cr> :cw<cr>
 nnoremap <silent> <space>d
 
 " Coc key settings
