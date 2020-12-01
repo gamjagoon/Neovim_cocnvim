@@ -1,5 +1,8 @@
 syntax on
 
+" set mouse
+set mouse=a
+
 " clipboard settings
 set clipboard=unnamedplus
 vnoremap <C-c> "+y
@@ -16,7 +19,6 @@ nnoremap <silent> <Leader>it :e ~/.config/nvim/init.vim<cr>
 xmap av :EasyAlign */  / l2al<CR>
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 nnoremap <silent> <space>f :vimgrep /\<<C-r><C-w>\>/g ./*/*.v<cr> :cw<cr>
-nnoremap <silent> <space>d
 
 " Coc key settings
 nnoremap <silent> <Leader>l :CocList<cr>
@@ -136,6 +138,7 @@ Plug 'junegunn/vim-easy-align'
 " language setting 
 Plug 'fatih/vim-go'
 Plug 'vim-scripts/verilog_emacsauto.vim'
+Plug 'https://github.com/Shirk/vim-gas'
 call plug#end()
 " autopair
 let g:AutoPairsFlyMode = 0
@@ -199,6 +202,7 @@ let g:floaterm_keymap_prev   = '<F3>'
 let g:floaterm_keymap_new    = '<F4>'
 
 au Filetype systemverilog source $HOME/.config/nvim/plugged/verilog_emacsauto.vim/ftplugin/verilog_emacsauto.vim
+au Filetype asm set syntax=gas
 
 " color setting 
 hi LineNr guifg=#d75f5f
