@@ -1,5 +1,0 @@
-[verilog]
-include_paths = ["rtl"]
-
-[option]
-linter = true
