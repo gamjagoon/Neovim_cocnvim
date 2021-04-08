@@ -5,7 +5,7 @@ directory2="$HOME/.config/nvim"
 file_init="$HOME/.config/nvim/init.vim"
 file_json="$HOME/.config/nvim/coc-settings.json"
 file_task="$HOME/.config/nvim/tasks.ini"
-config_path="$(pwd)/.config"
+config_path="$(pwd)/config"
 
 if [ -d $directory1 ] && [ -d $directory2 ] && [ -f $file_init ] && [ -f $file_json ] && [ -f $file_task ] ;then
 	echo "copy files to .config"
@@ -15,8 +15,8 @@ if [ -d $directory1 ] && [ -d $directory2 ] && [ -f $file_init ] && [ -f $file_j
    if [ ! -d $config_path/coc/ultisnips ] ; then
       mkdir -p $config_path/coc/ultisnips
    fi
-   cp $file_init $file_json $file_task $(pwd)/.config/nvim/  
-   cp $directory1/* $(pwd)/.config/coc/ultisnips/
+   cp $file_init $file_json $file_task $config_path/nvim/  
+   cp $directory1/* $config_path/coc/ultisnips/
 fi
 
 echo "end"

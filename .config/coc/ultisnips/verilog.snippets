@@ -1,0 +1,264 @@
+# Snippet options:
+#
+#      b - Beginning of line.
+#      i - In-word expansion.
+#      w - Word boundary.
+#      r - Regular expression
+#      e - Custom context snippet
+#      A - Snippet will be triggered automatically, when condition matches.
+
+snippet inst "autos" i
+/*AUTOINST*/
+endsnippet
+
+snippet arg "autos" i
+/*AUTOARG*/
+endsnippet
+
+snippet autos "auto" i
+/*AUTOINPUT*/
+/*AUTOOUTPUT*/
+/*AUTOWIRE*/
+/*AUTOREG*/
+$1
+endsnippet
+
+snippet modul "moduele" b 
+module $1 (/*AUTOARG*/) ;
+   $2
+endmodule //$1
+endsnippet
+
+snippet wid "short" i
+WIDTH
+endsnippet
+
+snippet par "Description" b
+parameter $1 = $2;
+endsnippet
+
+snippet output "output ;" i
+output  $1;
+endsnippet
+
+snippet input "input ;" i
+input  $1;
+endsnippet
+
+snippet reg "reg" i
+reg  $1;
+endsnippet
+
+snippet wire "wire ;" i
+wire  $1;
+endsnippet
+
+snippet assign "assign" i
+assign $1;
+endsnippet
+
+snippet init "initial" b
+initial begin
+   $1
+end
+endsnippet
+
+snippet clk "b#asic always" i
+always @(posedge clk or negedge rst_n)begin
+   if(!rst_n) begin
+      $1
+   end else begin
+      
+   end
+end
+endsnippet
+
+snippet by "bytes" i
+[$1:$2]$3
+endsnippet
+
+snippet begin "begin" i
+begin
+   $1
+end
+endsnippet
+
+snippet always "always" w
+always @($1) begin
+   $2
+end
+endsnippet
+
+snippet negedge "negedge" i
+negedge $1
+endsnippet
+
+snippet if "if" i
+if($1) begin
+   $2
+end
+endsnippet
+
+snippet elseif "else if" i
+else if($1) begin
+   $2
+end
+endsnippet
+
+snippet else "else" i
+else begin
+   $1
+end
+endsnippet
+
+snippet syn "clk rst_n" b
+// Synchronous clock with asynchronous reset
+input           clk;
+input         rst_n;
+$1
+endsnippet
+
+snippet File "Description" b
+//-----------------------------------------------------------------------------
+// File          : `!v expand('%:t')`
+// Author        : MinJae Kim  <gimminjae@islab.re.kr>
+// Created       : `date +%d.%m.20%y`
+// Last modified : `date +%d.%m.20%y`
+//-----------------------------------------------------------------------------
+// Description :
+// $1
+//-----------------------------------------------------------------------------
+// Copyright (c) 2020 by ISLab This model is the confidential and
+// proprietary property of ISLab and the possession or use of this
+// file requires a written license from ISLab.
+$2
+endsnippet
+
+snippet ARR4 "Description" i
+{${1:data}[3],${1:data}[2],${1:data}[1],${1:data}[0]};
+endsnippet
+
+snippet ARR8 "Description" i
+{${1:data}[7],${1:data}[6],${1:data}[5],${1:data}[4],
+${1:data}[3],${1:data}[2],${1:data}[1],${1:data}[0]};
+endsnippet
+
+snippet ARR16 "Description" i
+{${1:data}[15],${1:data}[14],${1:data}[13],${1:data}[12],
+${1:data}[11],${1:data}[10],${1:data}[9],${1:data}[8],
+${1:data}[7],${1:data}[6],${1:data}[5],${1:data}[4],
+${1:data}[3],${1:data}[2],${1:data}[1],${1:data}[0]};
+endsnippet
+
+snippet title "Description" b
+//-----------------------------------------------------------------------------
+// Title       : $1
+// Description : $2
+//-----------------------------------------------------------------------------
+$3
+endsnippet
+
+snippet and "logic and" i
+ && $1
+endsnippet
+
+snippet or "logical or" i
+ || $1
+endsnippet
+
+snippet counter "counter" b
+//-----------------------------------------------------------------------------
+// Title       : Counter
+//-----------------------------------------------------------------------------
+reg [$1:$2] $3;
+
+// Watchdog Control Signal
+wire   cnt_init;  // counter init signal
+wire   cnt_incr;  // counter increase signal
+
+assign cnt_init = ;
+assign cnt_incr = ;
+
+always @ (posedge clk or negedge rst_n) begin
+   if(!rst_n) begin
+      cnt <= 'b0;
+   end else begin
+      if(cnt_init) begin
+         cnt <= 'b0;
+      end else if(cnt_incr) begin
+         cnt <= cnt + 'd1;
+      end
+   end
+end
+
+endsnippet
+
+snippet generate "Description" i
+genvar $1;
+generate
+   for($1 = 0; $1 < $2; $1 = $1 + 1)begin : gen
+      $3
+   end
+endgenerate
+endsnippet
+
+snippet FSMINIT "ST_INIT" b
+// Localparam for FSM
+localparam ST_SIZE        = 9;
+localparam ${1:CLEAR}     = {{(ST_SIZE-1){1'b0}}, 1'b1} << 0;
+localparam ${2:ST1}       = {{(ST_SIZE-1){1'b0}}, 1'b1} << 1;
+localparam ${3:ST2}       = {{(ST_SIZE-1){1'b0}}, 1'b1} << 2;
+localparam ${4:ST3}       = {{(ST_SIZE-1){1'b0}}, 1'b1} << 3;
+localparam ${5:ST4}       = {{(ST_SIZE-1){1'b0}}, 1'b1} << 4;
+localparam ${6:ST5}       = {{(ST_SIZE-1){1'b0}}, 1'b1} << 5;
+localparam ${7:ST6}       = {{(ST_SIZE-1){1'b0}}, 1'b1} << 6;
+localparam ${8:ST7}       = {{(ST_SIZE-1){1'b0}}, 1'b1} << 7;
+localparam ${9:ST8}       = {{(ST_SIZE-1){1'b0}}, 1'b1} << 8;
+localparam ST_INIT        = ${1:CLEAR};
+
+// Internal Flag and Status Register
+
+
+// Output Wire Assignment
+
+// FSM Register
+reg [ST_SIZE-1:0]     state, state_nxt;
+
+// always block to update state
+always @ (posedge clk or negedge rst_n) begin
+   if(!rst_n) begin
+      state <= ST_INIT;
+   end else begin
+      if(clr) begin
+         state <= ST_INIT;
+      end else begin
+         state <= state_nxt;
+      end
+   end
+end
+
+// always block to compute state_nxt
+always @ (*) begin
+   state_nxt = state;
+   case (state)
+      ${1:CLEAR} : begin
+      end
+      ${2:ST1}  : begin
+      end
+      ${3:ST2}  : begin
+      end
+      ${4:ST3} : begin
+      end
+      ${5:ST4} : begin
+      end
+      ${6:ST5} : begin
+      end
+      ${7:ST6} : begin
+      end
+      ${8:ST7} : begin
+      end
+      ${9:ST8} : begin
+      end
+   endcase // case (state)
+end
+endsnippet
