@@ -1,10 +1,10 @@
 {
-	"git.enableGutters": true,
+	"git.enableGutters": false,
 	"languageserver": 
 	{ 
 		"golang": 
 		{
-			"command": "gopls",
+			"command": "$HOME/go/bin/gopls",
 			"rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
 			"filetypes": ["go"]
 		},
@@ -17,9 +17,6 @@
    "explorer.width": 30,
    "explorer.icon.enableNerdfont": true,
    "explorer.previewAction.onHover": false,
-   "explorer.keyMappings": {
-      "v": "open:vsplit"
-   },
-  "clangd.path": "/home/minjae/.config/coc/extensions/coc-clangd-data/install/12.0.0/clangd_12.0.0/bin/clangd",
+     "clangd.path": "/home/minjae/.config/coc/extensions/coc-clangd-data/install/12.0.0/clangd_12.0.0/bin/clangd",
   "coc.preferences.extensionUpdateCheck": "daily"
 }
