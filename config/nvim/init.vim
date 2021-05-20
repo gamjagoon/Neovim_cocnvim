@@ -41,10 +41,6 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-inoremap <C-J> <ESC><C-W><C-J>
-inoremap <C-K> <ESC><C-W><C-K>
-inoremap <C-L> <ESC><C-W><C-L>
-inoremap <C-H> <ESC><C-W><C-H>
 
 let g:coc_explorer_global_presets = {
 \   '.vim': {
