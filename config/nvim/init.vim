@@ -169,7 +169,7 @@ let g:asyncrun_rootmarks = ['.git', '.svn', '.root', '.project', '.hg']
 let g:asynctasks_term_focus = 1
 
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_alt_sep = '>'
+let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline_theme = 'powerlineish'
 
 inoremap <silent><expr> <TAB>
@@ -191,6 +191,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
 
 nmap <leader>rn <Plug>(coc-rename)>
 nmap <leader>A  <Plug>(coc-codeaction-line)
