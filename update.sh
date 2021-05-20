@@ -15,7 +15,7 @@ if [ -d $directory1 ] && [ -d $directory2 ] && [ -f $file_init ] && [ -f $file_j
    if [ ! -d $config_path/coc/ultisnips ] ; then
       mkdir -p $config_path/coc/ultisnips
    fi
-   cp $file_init $file_json $file_task $config_path/nvim/  
+   cp $directory2/*.* $config_path/nvim/  
    cp $directory1/* $config_path/coc/ultisnips/
 fi
 
