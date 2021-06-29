@@ -18,8 +18,11 @@ nnoremap <silent> <Leader>it :e ~/.config/nvim/init.vim<cr>
 
 xmap av :EasyAlign */  / l2al<CR>
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
-nnoremap <silent> <space>f :vimgrep /\<<C-r><C-w>\>/g ../*/*.v<cr> :cw<cr>
-
+nnoremap <silent> <space>fv :cd %:p:h<cr> :vimgrep /\<<C-r><C-w>\>/g ../*/*.v<cr> :cw<cr>
+nnoremap <silent> <space>ff :cd %:p:h<cr> :vimgrep /\<<C-r><C-w>\>/g ../*/*.* ./* <cr> :cw<cr>
+nnoremap <silent> <space>fc :cd %:p:h<cr> :vimgrep /\<<C-r><C-w>\>/g ../include/*.c ../include/*.h ../include/*.hpp ../include/*.cpp ./* <cr> :cw<cr>
+nnoremap <silent> <space>co :copen<cr> :cw<cr>
+nnoremap <silent> <space>cc :cclose<cr>
 " Coc key settings
 nnoremap <silent> <Leader>l :CocList<cr>
 nnoremap <silent> <Leader>c :CocCommand<cr>

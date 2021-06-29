@@ -7,6 +7,16 @@
 #      e - Custom context snippet
 #      A - Snippet will be triggered automatically, when condition matches.
 
+snippet description "Description" b
+//-----------------------------------------------------------------------------
+// Description : $2
+//-----------------------------------------------------------------------------
+endsnippet
+
+snippet nonblk "None Block" i
+<= $1;
+endsnippet
+
 snippet inst "autos" i
 /*AUTOINST*/
 endsnippet
@@ -63,7 +73,7 @@ initial begin
 end
 endsnippet
 
-snippet clk "b#asic always" i
+snippet clk "asic always" i
 always @(posedge clk or negedge rst_n)begin
    if(!rst_n) begin
       $1
