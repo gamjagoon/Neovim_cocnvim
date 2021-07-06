@@ -11,6 +11,13 @@ else
    cp config/coc/ultisnips/* $HOME/.config/coc/ultisnips/
 fi
 
+if [ -d "$HOME/.config/coc/extensions/package.json" ]; then
+   cp config/coc/extensions/package.json $HOME/.config/coc/extensions/package.json
+else 
+   mkdir -p $HOME/.config/coc/extensions
+   cp config/coc/extensions/package.json $HOME/.config/coc/extensions/package.json
+fi
+
 if [ -d "$HOME/.config/nvim" ];then
    cp config/nvim/* $HOME/.config/nvim/
 else

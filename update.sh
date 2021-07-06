@@ -1,6 +1,6 @@
 #!/bin/bash
 
-directory1="$HOME/.config/coc/ultisnips"
+directory1="$HOME/.config/coc"
 directory2="$HOME/.config/nvim"
 file_init="$HOME/.config/nvim/init.vim"
 file_json="$HOME/.config/nvim/coc-settings.json"
@@ -16,7 +16,8 @@ if [ -d $directory1 ] && [ -d $directory2 ] && [ -f $file_init ] && [ -f $file_j
       mkdir -p $config_path/coc/ultisnips
    fi
    cp $directory2/*.* $config_path/nvim/  
-   cp $directory1/* $config_path/coc/ultisnips/
+   cp $directory1/ultisnips $config_path/coc/ultisnips/
+   cp $directory1/extensions/package.json $config_path/coc/extensions/package.json
 fi
 
 echo "end"
