@@ -7,16 +7,6 @@
 #      e - Custom context snippet
 #      A - Snippet will be triggered automatically, when condition matches.
 
-snippet description "Description" b
-//-----------------------------------------------------------------------------
-// Description : $2
-//-----------------------------------------------------------------------------
-endsnippet
-
-snippet nonblk "None Block" i
-<= $1;
-endsnippet
-
 snippet inst "autos" i
 /*AUTOINST*/
 endsnippet
@@ -73,7 +63,7 @@ initial begin
 end
 endsnippet
 
-snippet clk "asic always" i
+snippet clk "b#asic always" i
 always @(posedge clk or negedge rst_n)begin
    if(!rst_n) begin
       $1
@@ -138,7 +128,7 @@ snippet File "Description" b
 // Description :
 // $1
 //-----------------------------------------------------------------------------
-// Copyright (c) 2021 by ISLab This model is the confidential and
+// Copyright (c) 2020 by ISLab This model is the confidential and
 // proprietary property of ISLab and the possession or use of this
 // file requires a written license from ISLab.
 $2
@@ -213,11 +203,6 @@ endgenerate
 endsnippet
 
 snippet FSMINIT "ST_INIT" b
-//-----------------------------------------------------------------------------
-// Title       : FSM
-// Description : 
-//-----------------------------------------------------------------------------
-
 // Localparam for FSM
 localparam ST_SIZE        = 9;
 localparam ${1:CLEAR}     = {{(ST_SIZE-1){1'b0}}, 1'b1} << 0;
@@ -232,6 +217,7 @@ localparam ${9:ST8}       = {{(ST_SIZE-1){1'b0}}, 1'b1} << 8;
 localparam ST_INIT        = ${1:CLEAR};
 
 // Internal Flag and Status Register
+
 
 // Output Wire Assignment
 
@@ -251,53 +237,27 @@ always @ (posedge clk or negedge rst_n) begin
    end
 end
 
-// FSM State Transition
+// always block to compute state_nxt
 always @ (*) begin
    state_nxt = state;
    case (state)
       ${1:CLEAR} : begin
       end
-      ${2:FSM1}  : begin
+      ${2:ST1}  : begin
       end
-      ${3:FSM2}  : begin
+      ${3:ST2}  : begin
       end
-      ${4:FSM3} : begin
+      ${4:ST3} : begin
       end
-      ${5:FSM4} : begin
+      ${5:ST4} : begin
       end
-      ${6:FSM5} : begin
+      ${6:ST5} : begin
       end
-      ${7:FSM6} : begin
+      ${7:ST6} : begin
       end
-      ${8:FSM7} : begin
+      ${8:ST7} : begin
       end
-      ${9:FSM8} : begin
-      end
-   endcase // case (state)
-end
-
-// FSM State signals
-always @ (*) begin
-   //default signals state
-   
-   case (state)
-      ${1:CLEAR} : begin
-      end
-      ${2:FSM1}  : begin
-      end
-      ${3:FSM2}  : begin
-      end
-      ${4:FSM3} : begin
-      end
-      ${5:FSM4} : begin
-      end
-      ${6:FSM5} : begin
-      end
-      ${7:FSM6} : begin
-      end
-      ${8:FSM7} : begin
-      end
-      ${9:FSM8} : begin
+      ${9:ST8} : begin
       end
    endcase // case (state)
 end

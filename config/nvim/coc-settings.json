@@ -1,22 +1,35 @@
 {
-	"git.enableGutters": false,
-	"languageserver": 
-	{ 
-		"golang": 
-		{
-			"command": "$HOME/go/bin/gopls",
-			"rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
-			"filetypes": ["go"]
-		},
+   "git.enableGutters": false,
+   "languageserver": 
+   { 
+      "golang": 
+      {
+         "command": "gopls",
+         "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+         "filetypes": ["go"]
+      },
       "svls": {
         "command": "svls",
         "rootPatterns":[".svls.toml"],
         "filetypes": ["systemverilog","verilog"]
+      },
+      "ccls": {
+         "command": "ccls",
+         "filetypes": ["c", "cpp"],
+         "rootPatterns": [".ccls", "compile_commands.json"],
+         "initializationOptions": {
+         "cache": {
+            "directory": ".ccls-cache"
+         },
+         "client": {
+            "snippetSupport" : true
+         },
+         "compilationDatabaseDirectory": "./build/"
       }
-	},
+    }
+   },
    "explorer.width": 30,
    "explorer.icon.enableNerdfont": true,
    "explorer.previewAction.onHover": false,
-     "clangd.path": "/home/minjae/.config/coc/extensions/coc-clangd-data/install/12.0.0/clangd_12.0.0/bin/clangd",
-  "coc.preferences.extensionUpdateCheck": "daily"
+   "coc.preferences.extensionUpdateCheck": "daily"
 }
