@@ -121,10 +121,6 @@ set shortmess+=c
 set signcolumn=yes
 " Plug in 
 call plug#begin()
-" telescope
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
 " Shorthand notation; fetches 
 Plug 'junegunn/vim-easy-align'
 " theme
@@ -140,7 +136,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'voldikss/vim-floaterm'
 Plug 'junegunn/vim-easy-align'
 " language setting 
-Plug 'fatih/vim-go'
 Plug 'vim-scripts/verilog_emacsauto.vim'
 Plug 'https://github.com/Shirk/vim-gas'
 call plug#end()
@@ -187,7 +182,6 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-
 
 nmap <leader>rn <Plug>(coc-rename)>
 nmap <leader>A  <Plug>(coc-codeaction-line)
