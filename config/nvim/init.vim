@@ -1,13 +1,9 @@
-syntax on
+" set mouse set mouse=a set guifont=Font:h18
 
-" set mouse
-set mouse=a
-
-" clipboard settings
 set clipboard=unnamedplus
 vnoremap <C-c> "+y
 map <C-v> "+P
-
+set guifont=SauceCodePro\ Nerd\ Font:h16
 " listchars settings
 set list listchars=eol:$,tab:\|-,extends:>,precedes:<,space:·
 set pastetoggle=<F5>
@@ -125,6 +121,7 @@ call plug#begin()
 Plug 'junegunn/vim-easy-align'
 " theme
 Plug 'https://github.com/lifepillar/vim-gruvbox8'
+Plug 'franbach/miramare'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " task manager
@@ -136,6 +133,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'voldikss/vim-floaterm'
 Plug 'junegunn/vim-easy-align'
 " language setting 
+Plug 'fatih/vim-go'
 Plug 'vim-scripts/verilog_emacsauto.vim'
 Plug 'https://github.com/Shirk/vim-gas'
 call plug#end()
@@ -149,8 +147,7 @@ set encoding=UTF-8
 set termguicolors     " enable true colors support
 set background=dark
 
-colorscheme gruvbox8
-let g:gruvbox_invert_indent_guides=1
+colorscheme miramare
 
 let g:asyncrun_open = 6
 let g:asynctasks_term_pos = 'left'
@@ -160,8 +157,8 @@ let g:asyncrun_rootmarks = ['.git', '.svn', '.root', '.project', '.hg']
 let g:asynctasks_term_focus = 1
 
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline_theme = 'powerlineish'
+let g:airline#extensions#tabline#left_alt_sep = '>'
+let g:airline_theme = 'miramare'
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
@@ -207,3 +204,8 @@ hi LineNr guifg=#d75f5f
 set cursorline
 hi clear CursorLine
 hi CursorLine gui=underline
+filetype off
+filetype plugin indent off
+set runtimepath+=$GOROOT/misc/vim
+filetype plugin indent on
+syntax on

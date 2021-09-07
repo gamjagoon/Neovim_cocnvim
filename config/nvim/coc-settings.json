@@ -1,7 +1,11 @@
 {
-   "git.enableGutters": false,
    "languageserver": 
    { 
+      "golang": {
+         "command": "gopls",
+         "rootPatterns": [ "go.mod", ".git/" ],
+         "filetypes": [ "go" ]
+      },
       "svls": {
         "command": "svls",
         "rootPatterns":[".svls.toml"],
