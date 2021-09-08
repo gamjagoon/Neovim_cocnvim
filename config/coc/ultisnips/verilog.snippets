@@ -29,10 +29,6 @@ module $1 (/*AUTOARG*/) ;
 endmodule //$1
 endsnippet
 
-snippet wid "short" i
-WIDTH
-endsnippet
-
 snippet par "Description" b
 parameter $1 = $2;
 endsnippet
@@ -54,7 +50,7 @@ wire  $1;
 endsnippet
 
 snippet assign "assign" i
-assign $1;
+assign $1 = $2;
 endsnippet
 
 snippet init "initial" b
@@ -156,6 +152,13 @@ snippet title "Description" b
 // Description : $2
 //-----------------------------------------------------------------------------
 $3
+endsnippet
+
+snippet  "Description" b
+//-----------------------------------------------------------------------------
+// Description : $1
+//-----------------------------------------------------------------------------
+$2
 endsnippet
 
 snippet and "logic and" i

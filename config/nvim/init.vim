@@ -1,12 +1,16 @@
 " set mouse set mouse=a set guifont=Font:h18
-
-set clipboard=unnamedplus
-vnoremap <C-c> "+y
-map <C-v> "+P
-set guifont=SauceCodePro\ Nerd\ Font:h16
+set clipboard+=unnamedplus
+set guifont=SauceCodePro\ Nerd\ Font:h20
+nnoremap <leader>p "+p
+vnoremap <leader>p "+p
+nnoremap <leader>P "+P
+vnoremap <leader>P "+P
+nnoremap <leader>y "+y
+vnoremap <leader>y "+y
+nnoremap <leader>Y "+y$
 " listchars settings
 set list listchars=eol:$,tab:\|-,extends:>,precedes:<,space:·
-set pastetoggle=<F5>
+
 noremap <F6> :set list!<CR>
 inoremap <F6> <C-o>:set list!<CR>
 cnoremap <F6> <C-c>:set list!<CR>
@@ -91,7 +95,6 @@ nnoremap <Leader>o o<Esc>yy15P
 nmap <S-f> ^i
 imap <C-a> <Esc><S-a>
 nnoremap <Leader>y v$hy<Esc>
-inoremap <C-v> <Esc>p
 
 " insert mode
 imap <Leader>; <Esc><S-a>;<Esc>
@@ -136,7 +139,10 @@ Plug 'junegunn/vim-easy-align'
 Plug 'fatih/vim-go'
 Plug 'vim-scripts/verilog_emacsauto.vim'
 Plug 'https://github.com/Shirk/vim-gas'
+Plug 'danilamihailov/beacon.nvim'
 call plug#end()
+
+let g:beacon_minimal_jump = 5
 " autopair
 let g:AutoPairsFlyMode = 0
 let g:AutoPairsShortcutBackInsert = '<C-b>'
@@ -191,10 +197,7 @@ let g:floaterm_height=0.8
 let g:floaterm_wintitle=0
 let g:floaterm_autoclose=1
 
-let g:floaterm_keymap_toggle = '<F1>'
-let g:floaterm_keymap_next   = '<F2>'
-let g:floaterm_keymap_prev   = '<F3>'
-let g:floaterm_keymap_new    = '<F4>'
+let g:floaterm_keymap_toggle = '<silent><leader>t'
 
 au Filetype systemverilog source $HOME/.config/nvim/plugged/verilog_emacsauto.vim/ftplugin/verilog_emacsauto.vim
 au Filetype asm set syntax=gas
