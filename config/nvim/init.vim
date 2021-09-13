@@ -1,3 +1,4 @@
+syntax on
 " set mouse set mouse=a set guifont=Font:h18
 set clipboard+=unnamedplus
 set guifont=SauceCodePro\ Nerd\ Font:h20
@@ -18,7 +19,7 @@ nnoremap <silent> <Leader>it :e ~/.config/nvim/init.vim<cr>
 
 xmap av :EasyAlign */  / l2al<CR>
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
-nnoremap <silent> <space>f :vimgrep /\<<C-r><C-w>\>/g ./*/*.sv<cr> :cw<cr>
+nnoremap <silent> <space>fv :vimgrep /\<<C-r><C-w>\>/g ./**/*.v ./**/*.sv<cr> :cw<cr>
 
 " Coc key settings
 nnoremap <silent> <Leader>l :CocList<cr>
@@ -46,10 +47,6 @@ let g:coc_explorer_global_presets = {
 \   '.vim': {
 \     'root-uri': '~/.vim',
 \   },
-\   'tab': {
-\     'position': 'tab',
-\     'quit-on-open': v:true,
-\   },
 \   'floating': {
 \     'position': 'floating',
 \     'open-action-strategy': 'sourceWindow',
@@ -72,9 +69,14 @@ let g:coc_explorer_global_presets = {
 \     'open-action-strategy': 'sourceWindow',
 \   },
 \   'simplify': {
-\     'file-child-template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]'
+\     'file-child-template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]',
 \   }
 \ }
+function! s:exec_cur_dir(cmd)
+  let dir = s:explorer_cur_dir()
+  execute 'cd ' . dir
+  execute a:cmd
+endfunction
 nmap <silent> <space>e  :CocCommand explorer<cr>
 autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
 set relativenumber
@@ -138,11 +140,7 @@ Plug 'junegunn/vim-easy-align'
 " language setting 
 Plug 'fatih/vim-go'
 Plug 'vim-scripts/verilog_emacsauto.vim'
-Plug 'https://github.com/Shirk/vim-gas'
-Plug 'danilamihailov/beacon.nvim'
 call plug#end()
-
-let g:beacon_minimal_jump = 5
 " autopair
 let g:AutoPairsFlyMode = 0
 let g:AutoPairsShortcutBackInsert = '<C-b>'
@@ -190,6 +188,7 @@ nmap <leader>rn <Plug>(coc-rename)>
 nmap <leader>A  <Plug>(coc-codeaction-line)
 
 " floaterm
+let g:floaterm_keymap_toggle = '<silent><leader>t'
 let g:floaterm_gitcommit='floaterm'
 let g:floaterm_autoinsert=1
 let g:floaterm_width=0.8
@@ -197,18 +196,16 @@ let g:floaterm_height=0.8
 let g:floaterm_wintitle=0
 let g:floaterm_autoclose=1
 
-let g:floaterm_keymap_toggle = '<silent><leader>t'
-
 au Filetype systemverilog source $HOME/.config/nvim/plugged/verilog_emacsauto.vim/ftplugin/verilog_emacsauto.vim
-au Filetype asm set syntax=gas
-
 " color setting 
-hi LineNr guifg=#d75f5f
+hi LineNr guifg=#D8D8D8
 set cursorline
 hi clear CursorLine
 hi CursorLine gui=underline
+hi Comment gui=italic guifg=#CACACA
+hi Todo gui=bold
+
 filetype off
 filetype plugin indent off
 set runtimepath+=$GOROOT/misc/vim
 filetype plugin indent on
-syntax on

@@ -84,11 +84,11 @@ endsnippet
 
 snippet clk "b#asic always" i
 always @(posedge clk or negedge rst_n)begin
-	if(!rst_n) begin
-		$1
-	end else begin
-		
-	end
+   if(!rst_n) begin
+      $1
+   end else begin
+      
+   end
 end
 endsnippet
 
@@ -98,13 +98,13 @@ endsnippet
 
 snippet begin "begin" i
 begin
-	$1
+   $1
 end
 endsnippet
 
 snippet always "always" w
 always @($1) begin
-	$2
+   $2
 end
 endsnippet
 
@@ -114,19 +114,19 @@ endsnippet
 
 snippet if "if" b
 if($1) begin
-	$2
+   $2
 end
 endsnippet
 
 snippet elseif "else if" i
 else if($1) begin
-	$2
+   $2
 end
 endsnippet
 
 snippet else "else" i
 else begin
-	$1
+   $1
 end
 endsnippet
 
@@ -174,15 +174,15 @@ assign cnt_inti = ;
 assign cnt_incr = ;
 
 always @ (posedge clk or negedge rst_n) begin
-	if(!rst_n) begin
-		cnt <= 'b0;
-	end else begin
-		if(cnt_init) begin
-			cnt <= 'b0;
-		end else if(cnt_incr) begin
-			cnt <= cnt + 'd1;
-		end
-	end
+   if(!rst_n) begin
+      cnt <= 'b0;
+   end else begin
+      if(cnt_init) begin
+         cnt <= 'b0;
+      end else if(cnt_incr) begin
+         cnt <= cnt + 'd1;
+      end
+   end
 end
 endsnippet
 
