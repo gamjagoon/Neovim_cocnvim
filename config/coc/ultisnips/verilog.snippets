@@ -279,3 +279,23 @@ always @ (*) begin
    endcase // case (state)
 end
 endsnippet
+
+snippet falling "falling edge detector" b
+   //-----------------------------------------------------------------------------
+   // Description : ${1:signal} signal falling edge detector
+   //-----------------------------------------------------------------------------
+   wire  falling, sig_now;
+   reg  sig_ff;
+
+   always @(posedge clk or negedge rst_n)begin
+      if(!rst_n) begin
+         sig_ff <= 0;
+      end else begin
+         sig_ff <= sig_now;
+      end
+   end
+
+   assign sig_now = ${1:signal};
+   assign falling = (~sig_now) & sig_ff;
+
+endsnippet

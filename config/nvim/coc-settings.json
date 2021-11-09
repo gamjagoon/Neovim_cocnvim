@@ -42,5 +42,6 @@
    "coc.preferences.extensionUpdateCheck": "daily",
    "go.goplsOptions": {
       "completeUnimported": true
-   }
+  },
+  "git.enableGutters": true
 }

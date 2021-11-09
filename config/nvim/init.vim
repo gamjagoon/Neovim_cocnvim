@@ -1,4 +1,5 @@
 syntax on
+set mouse=a
 " set mouse set mouse=a set guifont=Font:h18
 set clipboard+=unnamedplus
 set guifont=SauceCodePro\ Nerd\ Font:h20
@@ -17,14 +18,13 @@ inoremap <F6> <C-o>:set list!<CR>
 cnoremap <F6> <C-c>:set list!<CR>
 nnoremap <silent> <Leader>it :e ~/.config/nvim/init.vim<cr>
 
-xmap av :EasyAlign */  / l2al<CR>
+xmap av :EasyAlign */  / l4al<CR>
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 nnoremap <silent> <space>fv :vimgrep /\<<C-r><C-w>\>/g ./**/*.v ./**/*.sv<cr> :cw<cr>
 
 " Coc key settings
 nnoremap <silent> <Leader>l :CocList<cr>
 nnoremap <silent> <Leader>c :CocCommand<cr>
-nnoremap <silent> <Leader>ts :CocList tasks<cr>
 nnoremap <silent> <Leader>di  :<C-u>CocList diagnostics<cr>
 
 nnoremap <Leader>w :wall<cr>
@@ -47,6 +47,17 @@ let g:coc_explorer_global_presets = {
 \   '.vim': {
 \     'root-uri': '~/.vim',
 \   },
+\   'cocConfig': {
+\      'root-uri': '~/.config/coc',
+\   },
+\   'tab': {
+\     'position': 'tab',
+\     'quit-on-open': v:true,
+\   },
+\   'tab:$': {
+\     'position': 'tab:$',
+\     'quit-on-open': v:true,
+\   },
 \   'floating': {
 \     'position': 'floating',
 \     'open-action-strategy': 'sourceWindow',
@@ -59,25 +70,24 @@ let g:coc_explorer_global_presets = {
 \   'floatingLeftside': {
 \     'position': 'floating',
 \     'floating-position': 'left-center',
-\     'floating-width': 40,
+\     'floating-width': 50,
 \     'open-action-strategy': 'sourceWindow',
 \   },
 \   'floatingRightside': {
 \     'position': 'floating',
 \     'floating-position': 'right-center',
-\     'floating-width': 40,
+\     'floating-width': 50,
 \     'open-action-strategy': 'sourceWindow',
 \   },
 \   'simplify': {
-\     'file-child-template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]',
-\   }
+\     'file-child-template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]'
+\   },
+\   'buffer': {
+\     'sources': [{'name': 'buffer', 'expand': v:true}]
+\   },
 \ }
-function! s:exec_cur_dir(cmd)
-  let dir = s:explorer_cur_dir()
-  execute 'cd ' . dir
-  execute a:cmd
-endfunction
-nmap <silent> <space>e  :CocCommand explorer<cr>
+
+nmap <silent> <space>e  :CocCommand explorer --preset floating<cr>
 autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
 set relativenumber
 set number
@@ -91,7 +101,7 @@ nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " middle start
-nnoremap <Leader>o o<Esc>yy15P
+nnoremap <Leader>o o<Esc>yy18P
 
 " Normal mode
 nmap <S-f> ^i
@@ -125,13 +135,9 @@ call plug#begin()
 " Shorthand notation; fetches 
 Plug 'junegunn/vim-easy-align'
 " theme
-Plug 'https://github.com/lifepillar/vim-gruvbox8'
 Plug 'franbach/miramare'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" task manager
-Plug 'skywind3000/asynctasks.vim'
-Plug 'skywind3000/asyncrun.vim'
 " pair
 Plug 'jiangmiao/auto-pairs'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -153,15 +159,8 @@ set background=dark
 
 colorscheme miramare
 
-let g:asyncrun_open = 6
-let g:asynctasks_term_pos = 'left'
-let g:asynctasks_term_rows = 100    " set height for the horizontal terminal split
-let g:asynctasks_term_cols = 80
-let g:asyncrun_rootmarks = ['.git', '.svn', '.root', '.project', '.hg']
-let g:asynctasks_term_focus = 1
-
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_alt_sep = '>'
+let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline_theme = 'miramare'
 
 inoremap <silent><expr> <TAB>
@@ -195,6 +194,17 @@ let g:floaterm_width=0.8
 let g:floaterm_height=0.8
 let g:floaterm_wintitle=0
 let g:floaterm_autoclose=1
+
+function! s:explorer_cur_dir()
+  let node_info = CocAction('runCommand', 'explorer.getNodeInfo', 0)
+  return fnamemodify(node_info['fullpath'], ':h')
+endfunction
+
+function! s:exec_cur_dir(cmd)
+  let dir = s:explorer_cur_dir()
+  execute 'cd ' . dir
+  execute a:cmd
+endfunction
 
 au Filetype systemverilog source $HOME/.config/nvim/plugged/verilog_emacsauto.vim/ftplugin/verilog_emacsauto.vim
 " color setting 
