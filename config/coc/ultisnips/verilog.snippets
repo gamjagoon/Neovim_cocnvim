@@ -7,6 +7,11 @@
 #      e - Custom context snippet
 #      A - Snippet will be triggered automatically, when condition matches.
 
+snippet IDX "FULL" b
+`define IDX32(x) 32*x+31:32*x
+`define IDX8(x)  8*x+7:8*x
+endsnippet
+
 snippet non "non block" w
 <= $1;
 endsnippet

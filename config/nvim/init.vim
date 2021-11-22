@@ -3,6 +3,29 @@ set mouse=a
 " set mouse set mouse=a set guifont=Font:h18
 set clipboard+=unnamedplus
 set guifont=SauceCodePro\ Nerd\ Font:h20
+" listchars settings
+set list listchars=eol:$,tab:\|-,extends:>,precedes:<,space:·
+" some basic 
+set noerrorbells
+set ts=3 softtabstop=3 et
+set shiftwidth=3
+set nowrap
+set splitbelow splitright
+set hlsearch
+set incsearch
+set scrolloff=20
+set hidden
+set nobackup
+set smartcase
+set noswapfile
+set undodir=~/.config/undodir
+set nowritebackup
+set updatetime=300
+set shortmess+=c
+set signcolumn=yes
+set relativenumber
+set number
+
 nnoremap <leader>p "+p
 vnoremap <leader>p "+p
 nnoremap <leader>P "+P
@@ -10,8 +33,6 @@ vnoremap <leader>P "+P
 nnoremap <leader>y "+y
 vnoremap <leader>y "+y
 nnoremap <leader>Y "+y$
-" listchars settings
-set list listchars=eol:$,tab:\|-,extends:>,precedes:<,space:·
 
 noremap <F6> :set list!<CR>
 inoremap <F6> <C-o>:set list!<CR>
@@ -89,8 +110,6 @@ let g:coc_explorer_global_presets = {
 
 nmap <silent> <space>e  :CocCommand explorer --preset floating<cr>
 autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
-set relativenumber
-set number
 
 " Buffer control
 nmap <Leader>b :ls<cr>:b
@@ -112,24 +131,6 @@ nnoremap <Leader>y v$hy<Esc>
 imap <Leader>; <Esc><S-a>;<Esc>
 nmap <Leader>; <S-a>;<Esc>
 
-" some basic 
-set noerrorbells
-set ts=3 softtabstop=3 et
-set shiftwidth=3
-set nowrap
-set splitbelow splitright
-set hlsearch
-set incsearch
-set scrolloff=20
-set hidden
-set nobackup
-set smartcase
-set noswapfile
-set undodir=~/.config/undodir
-set nowritebackup
-set updatetime=300
-set shortmess+=c
-set signcolumn=yes
 " Plug in 
 call plug#begin()
 " Shorthand notation; fetches 
