@@ -22,7 +22,6 @@
           "rootPatterns": [
               ".ccls",
               "compile_commands.json",
-              ".vim/",
               ".git/"
           ],
           "initializationOptions": {
@@ -39,9 +38,5 @@
    "explorer.width": 30,
    "explorer.icon.enableNerdfont": true,
    "explorer.previewAction.onHover": false,
-   "coc.preferences.extensionUpdateCheck": "daily",
-   "go.goplsOptions": {
-      "completeUnimported": true
-  },
-  "git.enableGutters": true
+   "coc.preferences.extensionUpdateCheck": "daily"
 }
