@@ -1,13 +1,12 @@
 syntax on
 set mouse=a
-" set mouse set mouse=a set guifont=Font:h18
 set clipboard+=unnamedplus
-set guifont=SauceCodePro\ Nerd\ Font:h20
+set guifont=FiraCode\ Nerd\ Font\ Mono:h16
 " listchars settings
 set list listchars=eol:$,tab:\|-,extends:>,precedes:<,space:·
 " some basic 
 set noerrorbells
-set ts=3 softtabstop=3 et
+set ts=3 softtabstop=3
 set shiftwidth=3
 set nowrap
 set splitbelow splitright
@@ -47,6 +46,7 @@ nnoremap <silent> <space>fv :vimgrep /\<<C-r><C-w>\>/g ./**/*.v ./**/*.sv<cr> :c
 nnoremap <silent> <Leader>l :CocList<cr>
 nnoremap <silent> <Leader>c :CocCommand<cr>
 nnoremap <silent> <Leader>di  :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <Leader>. :CocAction<cr>
 
 nnoremap <Leader>w :wall<cr>
 nnoremap <Leader>qq :w\|bw<cr>
@@ -133,17 +133,15 @@ nmap <Leader>; <S-a>;<Esc>
 
 " Plug in 
 call plug#begin()
-" Shorthand notation; fetches 
-Plug 'junegunn/vim-easy-align'
-" theme
-Plug 'franbach/miramare'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 " pair
 Plug 'jiangmiao/auto-pairs'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'voldikss/vim-floaterm'
 Plug 'junegunn/vim-easy-align'
+Plug 'itchyny/lightline.vim'
+Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
+Plug 'akinsho/bufferline.nvim'
 " language setting 
 Plug 'fatih/vim-go'
 Plug 'vim-scripts/verilog_emacsauto.vim'
@@ -156,13 +154,22 @@ let g:AutoPairs = {'(':')', '[':']', '{':'}','"':'"'}
 
 set encoding=UTF-8
 set termguicolors     " enable true colors support
+" Example config in VimScript
+let g:tokyonight_style = "storm"
+let g:tokyonight_italic_functions = 1
+let g:tokyonight_sidebars = [ "qf", "vista_kind", "terminal", "packer" ]
+let g:lightline = {'colorscheme': 'tokyonight'}
+let g:tokyonight_colors = {
+  \ 'hint': 'orange',
+  \ 'error': '#ff0000'
+\ }
 set background=dark
 
-colorscheme miramare
+colorscheme tokyonight
 
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline_theme = 'miramare'
+lua << EOF
+require("bufferline").setup{}
+EOF
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
@@ -211,8 +218,6 @@ au Filetype systemverilog source $HOME/.config/nvim/plugged/verilog_emacsauto.vi
 " color setting 
 hi LineNr guifg=#D8D8D8
 set cursorline
-hi clear CursorLine
-hi CursorLine gui=underline
 hi Comment gui=italic guifg=#CACACA
 hi Todo gui=bold
 
