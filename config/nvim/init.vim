@@ -143,7 +143,6 @@ Plug 'itchyny/lightline.vim'
 Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
 Plug 'akinsho/bufferline.nvim'
 " language setting 
-Plug 'fatih/vim-go'
 Plug 'vim-scripts/verilog_emacsauto.vim'
 call plug#end()
 " autopair
