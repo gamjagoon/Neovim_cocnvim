@@ -14,7 +14,7 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
-keymap("n", "<Space>e", ":Lex 30<cr>", opts)
+keymap("n", "<Space>e", ":NvimTreeToggle<CR>", opts)
 keymap("n", "vs", ":vs<cr>", opts)
 keymap("n", "sp", ":sp<cr>", opts)
 
