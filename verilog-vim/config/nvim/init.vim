@@ -6,8 +6,8 @@ set guifont=FiraCode\ Nerd\ Font\ Mono:h16
 set list listchars=eol:$,tab:\|-,extends:>,precedes:<,space:·
 " some basic 
 set noerrorbells
-set ts=3 softtabstop=3
-set shiftwidth=3
+set ts=4 softtabstop=4
+set shiftwidth=4
 set nowrap
 set splitbelow splitright
 set hlsearch
@@ -40,7 +40,7 @@ nnoremap <silent> <Leader>it :e ~/.config/nvim/init.vim<cr>
 
 xmap av :EasyAlign */  / l4al<CR>
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
-nnoremap <silent> <space>fv :vimgrep /\<<C-r><C-w>\>/g ./**/*.v ./**/*.sv<cr> :cw<cr>
+nnoremap <silent> <space>sg vimgrep /\<<C-r><C-w>\>/g ./**/*.v ./**/*.sv<cr> :cw<cr>
 
 " Coc key settings
 nnoremap <silent> <Leader>l :CocList<cr>
@@ -48,13 +48,7 @@ nnoremap <silent> <Leader>c :CocCommand<cr>
 nnoremap <silent> <Leader>di  :<C-u>CocList diagnostics<cr>
 nnoremap <silent> <Leader>. :CocAction<cr>
 
-nnoremap <Leader>w :wall<cr>
-nnoremap <Leader>qq :w\|bw<cr>
-nnoremap <Leader>ee :e!<cr>
-nnoremap <Leader>1 $bi<space><TAB><TAB><TAB><TAB><Esc>
-nnoremap <Leader>2 jdw
 nnoremap <Leader><space> :nohls<cr>
-nnoremap <Leader>S 0dweldwi<space><Esc>
 
 " Better splits
 nnoremap sp :split<cr>
@@ -63,50 +57,6 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-
-let g:coc_explorer_global_presets = {
-\   '.vim': {
-\     'root-uri': '~/.vim',
-\   },
-\   'cocConfig': {
-\      'root-uri': '~/.config/coc',
-\   },
-\   'tab': {
-\     'position': 'tab',
-\     'quit-on-open': v:true,
-\   },
-\   'tab:$': {
-\     'position': 'tab:$',
-\     'quit-on-open': v:true,
-\   },
-\   'floating': {
-\     'position': 'floating',
-\     'open-action-strategy': 'sourceWindow',
-\   },
-\   'floatingTop': {
-\     'position': 'floating',
-\     'floating-position': 'center-top',
-\     'open-action-strategy': 'sourceWindow',
-\   },
-\   'floatingLeftside': {
-\     'position': 'floating',
-\     'floating-position': 'left-center',
-\     'floating-width': 50,
-\     'open-action-strategy': 'sourceWindow',
-\   },
-\   'floatingRightside': {
-\     'position': 'floating',
-\     'floating-position': 'right-center',
-\     'floating-width': 50,
-\     'open-action-strategy': 'sourceWindow',
-\   },
-\   'simplify': {
-\     'file-child-template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]'
-\   },
-\   'buffer': {
-\     'sources': [{'name': 'buffer', 'expand': v:true}]
-\   },
-\ }
 
 nmap <silent> <space>e  :CocCommand explorer --preset floating<cr>
 autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
@@ -169,22 +119,6 @@ colorscheme tokyonight
 lua << EOF
 require("bufferline").setup{}
 EOF
-
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-let g:coc_snippet_next = '<tab>'
-
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : 
-                        \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<cr>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
@@ -224,3 +158,6 @@ filetype off
 filetype plugin indent off
 set runtimepath+=$GOROOT/misc/vim
 filetype plugin indent on
+
+inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
